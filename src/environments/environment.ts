@@ -4,6 +4,7 @@
 
 export const environment = {
   production: false,
+  API_URL: 'https://api.escuelajs.co'
 };
 /*
  * For easier debugging in development mode, you can import the following file
