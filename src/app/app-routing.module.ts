@@ -23,6 +23,11 @@ const routes: Routes = [
     component: PageNotFoundComponent,
   },
   {
+    path: '**',
+    redirectTo: '/not-found',
+    pathMatch: 'full',
+  },
+  {
     path: 'home',
     component: HomeComponent
   },

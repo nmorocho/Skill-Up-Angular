@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-page-not-found',
-  templateUrl: './page-not-found.component.html',
+  template: `<div><img src="https://media.giphy.com/media/A9EcBzd6t8DZe/giphy.gif"></div>`,
   styleUrls: ['./page-not-found.component.scss']
 })
 export class PageNotFoundComponent implements OnInit {
