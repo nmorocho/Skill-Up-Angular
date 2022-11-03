@@ -17,6 +17,10 @@
     "moduleResolution": "node",
     "importHelpers": true,
     "resolveJsonModule":true,
+
+    "strictPropertyInitialization": false,
+    "strictNullChecks": false,
+    
     "target": "es2020",
     "module": "es2020",
     "lib": [

@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './pages/home/home.component';
 import { SharedModule } from './shared/shared.module';
 import { AuthRegistroModule } from './pages/auth-registro/auth-registro.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent],
@@ -16,6 +17,7 @@ import { AuthRegistroModule } from './pages/auth-registro/auth-registro.module';
     BrowserAnimationsModule,
     SharedModule,
     AuthRegistroModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent],
