@@ -1,7 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/core/services/auth.service';
-import { RegisterBodyUser } from 'src/app/core/interfaces/UserCredentials.interface';
+import {
+  LoginBodyUser,
+  RegisterBodyUser,
+} from 'src/app/core/interfaces/UserCredentials.interface';
+import { Router } from '@angular/router';
+import { LoginResponse } from 'src/app/core/interfaces/ApiResponse.interface';
 
 @Component({
   selector: 'app-registro',
@@ -37,9 +42,37 @@ export class RegistroComponent implements OnInit {
       points: 1,
     };
 
-    this.authService.createUser(this._iUser).subscribe({
+    /*  this.authService.createUser(this._iUser).subscribe({
       next: (data) => {
         console.log(data);
+      },
+    }); */
+
+    this.authService.createUser(this._iUser).subscribe({
+      next: (userResponse: RegisterBodyUser) => {
+        console.log(userResponse);
+        const userCredentials: LoginBodyUser = {
+          email: this.signUpForm.value.email,
+          password: this.signUpForm.value.password,
+        };
+        this.authService.login(userCredentials).subscribe({
+          next: (token: string) => {
+            this.authService.createAcount(token).subscribe({
+              next: (data: any) => {
+                console.log(data);
+              },
+              error: (error) => {
+                console.log(error);
+              },
+            });
+          },
+          error: (error) => {
+            console.log(error);
+          },
+        });
+      },
+      error: (error) => {
+        console.log(error);
       },
     });
   }
