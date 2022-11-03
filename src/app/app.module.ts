@@ -9,6 +9,8 @@ import { HomeComponent } from './pages/home/home.component';
 import { SharedModule } from './shared/shared.module';
 import { AuthRegistroModule } from './pages/auth-registro/auth-registro.module';
 import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
+import { AuthLoginModule } from './pages/auth-login/auth-login.module';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent],
@@ -18,9 +20,9 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserAnimationsModule,
     SharedModule,
     AuthRegistroModule,
+    AuthLoginModule,
     HttpClientModule,
-    RouterModule
-
+    RouterModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

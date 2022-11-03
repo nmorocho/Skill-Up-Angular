@@ -7,24 +7,48 @@
             <div class="card-body p-5">
               <h2 class="text-uppercase text-center mb-5">Crear cuenta</h2>
 
-              <form [formGroup]="signUpForm" (ngSubmit)="onSignUp()" >
+              <form [formGroup]="signUpForm" (ngSubmit)="onSignUp()">
                 <div class="form-floating mb-3">
-                  <input type="email" class="form-control" id="floatingInput" formControlName = "first_name" laceholder="name@example.com" />
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="floatingInput"
+                    formControlName="first_name"
+                    laceholder="name@example.com"
+                  />
                   <label for="floatingInput">Nombre</label>
                 </div>
 
                 <div class="form-floating mb-3">
-                  <input type="email" class="form-control" id="floatingInput"  formControlName = "last_name" placeholder="name@example.com" />
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="floatingInput"
+                    formControlName="last_name"
+                    placeholder="name@example.com"
+                  />
                   <label for="floatingInput">Apellido</label>
                 </div>
 
                 <div class="form-floating mb-3">
-                  <input type="email" class="form-control" id="floatingInput" formControlName = "email" placeholder="name@example.com" />
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="floatingInput"
+                    formControlName="email"
+                    placeholder="name@example.com"
+                  />
                   <label for="floatingInput">Email</label>
                 </div>
 
                 <div class="form-floating mb-3">
-                  <input type="password" class="form-control" id="floatingInput" formControlName = "password" placeholder="name@example.com" />
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="floatingInput"
+                    formControlName="password"
+                    placeholder="name@example.com"
+                  />
                   <label for="floatingInput">Contraseña</label>
                 </div>
 
@@ -36,7 +60,9 @@
 
                 <p class="text-center text-muted mt-5 mb-0">
                   ¿Ya tienes una cuenta?
-                  <a routerLink="/login" class="text-body custom-link">Iniciar Sesión</a>
+                  <a routerLink="/login" class="text-body custom-link"
+                    >Iniciar Sesión</a
+                  >
                 </p>
               </form>
             </div>
