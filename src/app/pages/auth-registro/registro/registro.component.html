@@ -7,49 +7,29 @@
             <div class="card-body p-5">
               <h2 class="text-uppercase text-center mb-5">Crear cuenta</h2>
 
-              <form>
+              <form [formGroup]="signUpForm" (ngSubmit)="onSignUp()" >
                 <div class="form-floating mb-3">
-                  <input
-                    type="email"
-                    class="form-control"
-                    id="floatingInput"
-                    placeholder="name@example.com"
-                  />
+                  <input type="email" class="form-control" id="floatingInput" formControlName = "first_name" laceholder="name@example.com" />
                   <label for="floatingInput">Nombre</label>
                 </div>
 
                 <div class="form-floating mb-3">
-                  <input
-                    type="email"
-                    class="form-control"
-                    id="floatingInput"
-                    placeholder="name@example.com"
-                  />
+                  <input type="email" class="form-control" id="floatingInput"  formControlName = "last_name" placeholder="name@example.com" />
                   <label for="floatingInput">Apellido</label>
                 </div>
 
                 <div class="form-floating mb-3">
-                  <input
-                    type="email"
-                    class="form-control"
-                    id="floatingInput"
-                    placeholder="name@example.com"
-                  />
+                  <input type="email" class="form-control" id="floatingInput" formControlName = "email" placeholder="name@example.com" />
                   <label for="floatingInput">Email</label>
                 </div>
 
                 <div class="form-floating mb-3">
-                  <input
-                    type="email"
-                    class="form-control"
-                    id="floatingInput"
-                    placeholder="name@example.com"
-                  />
+                  <input type="password" class="form-control" id="floatingInput" formControlName = "password" placeholder="name@example.com" />
                   <label for="floatingInput">Contraseña</label>
                 </div>
 
                 <div class="d-flex justify-content-center">
-                  <button type="button" class="btn btn-outline-dark">
+                  <button type="submit" class="btn btn-outline-dark">
                     Registrarse
                   </button>
                 </div>
