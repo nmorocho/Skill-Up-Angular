@@ -6,11 +6,10 @@
           <div class="card" style="border-radius: 15px">
             <div class="card-body p-5">
               <h2 class="text-uppercase text-center mb-5">Iniciar Sesión</h2>
-
-              <form>
-
+              <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
                 <div class="form-floating mb-3">
                   <input
+                    formControlName="email"
                     type="email"
                     class="form-control"
                     id="floatingInput"
@@ -21,23 +20,25 @@
 
                 <div class="form-floating mb-3">
                   <input
-                    type="email"
+                    formControlName="password"
+                    type="password"
                     class="form-control"
                     id="floatingInput"
-                    placeholder="name@example.com"
                   />
                   <label for="floatingInput">Contraseña</label>
                 </div>
 
                 <div class="d-flex justify-content-center">
-                  <button type="button" class="btn btn-outline-dark">
+                  <button type="submit" class="btn btn-outline-dark">
                     Ingresar
                   </button>
                 </div>
 
                 <p class="text-center text-muted mt-5 mb-0">
                   ¿No tienes una cuenta?
-                  <a routerLink="/register" class="text-body custom-link">Crear Cuenta</a>
+                  <a routerLink="/register" class="text-body custom-link"
+                    >Crear Cuenta</a
+                  >
                 </p>
               </form>
             </div>
