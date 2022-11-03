@@ -19,3 +19,15 @@
     background: linear-gradient(to right, rgba(132, 250, 176, 1), rgba(143, 211, 244, 1))
     }
     
+.custom-gradient {
+    background: rgb(2,0,36);
+background: linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(60,54,53,1) 41%, rgba(248,249,250,1) 86%);
+}
+
+.custom-link {
+    text-decoration: none;
+}
+
+.custom-link:hover {
+    text-decoration: underline;
+}
