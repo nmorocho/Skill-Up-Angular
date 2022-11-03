@@ -17,7 +17,7 @@ export class RegistroComponent implements OnInit {
   _iUser: RegisterBodyUser;
   signUpForm: FormGroup;
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService, private router: Router) {}
 
   ngOnInit(): void {
     this.initializeForm();
@@ -42,15 +42,8 @@ export class RegistroComponent implements OnInit {
       points: 1,
     };
 
-    /*  this.authService.createUser(this._iUser).subscribe({
-      next: (data) => {
-        console.log(data);
-      },
-    }); */
-
     this.authService.createUser(this._iUser).subscribe({
       next: (userResponse: RegisterBodyUser) => {
-        console.log(userResponse);
         const userCredentials: LoginBodyUser = {
           email: this.signUpForm.value.email,
           password: this.signUpForm.value.password,
@@ -59,7 +52,7 @@ export class RegistroComponent implements OnInit {
           next: (token: string) => {
             this.authService.createAcount(token).subscribe({
               next: (data: any) => {
-                console.log(data);
+                this.router.navigate(['/home']);
               },
               error: (error) => {
                 console.log(error);
