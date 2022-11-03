@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { RouterModule } from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,6 +17,7 @@ import { AuthRegistroModule } from './pages/auth-registro/auth-registro.module';
     BrowserAnimationsModule,
     SharedModule,
     AuthRegistroModule,
+    RouterModule
   ],
   providers: [],
   bootstrap: [AppComponent],
