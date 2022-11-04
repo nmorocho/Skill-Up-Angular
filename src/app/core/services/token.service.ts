@@ -1,20 +1,21 @@
 import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class TokenService {
-
-  constructor() { }
+  constructor() {}
 
   saveToken(token: string) {
-    localStorage.setItem('token', token);
-    console.log('token desde token service', token)
+    localStorage.setItem(environment.TOKEN_KEY, token);
   }
 
   getToken() {
-    const token = localStorage.getItem('token');
-    return token;
+    return localStorage.getItem(environment.TOKEN_KEY);
   }
 
+  removeToken() {
+    localStorage.removeItem(environment.TOKEN_KEY);
+  }
 }
