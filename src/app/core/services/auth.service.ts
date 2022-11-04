@@ -29,12 +29,7 @@ export class AuthService {
       .post<LoginResponse>(`${environment.API_URL}/auth/login`, user)
       .pipe(
         map((res) => {
-          // this.saveToken(res.accessToken);
-
           this.tokenService.saveToken(res.accessToken)
-
-          // console.log('auth',res.accessToken)
-          // return res.accessToken;
         })
       );
   }
@@ -54,8 +49,4 @@ export class AuthService {
       { headers: customHeaders }
     );
   }
-
-  // private saveToken(token: string) {
-  //   localStorage.setItem('token', token);
-  // }
 }
