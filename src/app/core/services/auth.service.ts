@@ -8,12 +8,17 @@ import {
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { LoginResponse } from '../interfaces/ApiResponse.interface';
 import { environment } from 'src/environments/environment';
+import { access } from 'fs';
+import { TokenService } from './token.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    private tokenService: TokenService
+    ) {}
 
   createUser(user: RegisterBodyUser): Observable<any> {
     return this.http.post(`${environment.API_URL}/users`, user);
@@ -24,8 +29,12 @@ export class AuthService {
       .post<LoginResponse>(`${environment.API_URL}/auth/login`, user)
       .pipe(
         map((res) => {
-          this.saveToken(res.accessToken);
-          return res.accessToken;
+          // this.saveToken(res.accessToken);
+
+          this.tokenService.saveToken(res.accessToken)
+
+          // console.log('auth',res.accessToken)
+          // return res.accessToken;
         })
       );
   }
@@ -46,7 +55,7 @@ export class AuthService {
     );
   }
 
-  private saveToken(token: string) {
-    localStorage.setItem('token', token);
-  }
+  // private saveToken(token: string) {
+  //   localStorage.setItem('token', token);
+  // }
 }
