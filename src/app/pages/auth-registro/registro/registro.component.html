@@ -9,46 +9,26 @@
 
               <form [formGroup]="signUpForm" (ngSubmit)="onSignUp()">
                 <div class="form-floating mb-3">
-                  <input
-                    type="email"
-                    class="form-control"
-                    id="floatingInput"
-                    formControlName="first_name"
-                    laceholder="name@example.com"
-                  />
+                  <input type="email" class="form-control" id="floatingInput" formControlName="first_name"
+                    laceholder="name@example.com" />
                   <label for="floatingInput">Nombre</label>
                 </div>
 
                 <div class="form-floating mb-3">
-                  <input
-                    type="email"
-                    class="form-control"
-                    id="floatingInput"
-                    formControlName="last_name"
-                    placeholder="name@example.com"
-                  />
+                  <input type="email" class="form-control" id="floatingInput" formControlName="last_name"
+                    placeholder="name@example.com" />
                   <label for="floatingInput">Apellido</label>
                 </div>
 
                 <div class="form-floating mb-3">
-                  <input
-                    type="email"
-                    class="form-control"
-                    id="floatingInput"
-                    formControlName="email"
-                    placeholder="name@example.com"
-                  />
+                  <input type="email" class="form-control" id="floatingInput" formControlName="email"
+                    placeholder="name@example.com" />
                   <label for="floatingInput">Email</label>
                 </div>
 
                 <div class="form-floating mb-3">
-                  <input
-                    type="password"
-                    class="form-control"
-                    id="floatingInput"
-                    formControlName="password"
-                    placeholder="name@example.com"
-                  />
+                  <input type="password" class="form-control" id="floatingInput" formControlName="password"
+                    placeholder="name@example.com" />
                   <label for="floatingInput">Contraseña</label>
                 </div>
 
@@ -58,11 +38,25 @@
                   </button>
                 </div>
 
+
+
+<div class="cotainer m-4">
+    <!-- Checked checkbox -->
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked />
+      <label class="form-check-label" for="flexCheckChecked"> He leído y acepto los terminos y condiciones</label>
+    </div>
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary m-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      Términos y condiciones
+    </button>
+
+</div>
+            
+
                 <p class="text-center text-muted mt-5 mb-0">
                   ¿Ya tienes una cuenta?
-                  <a routerLink="/login" class="text-body custom-link"
-                    >Iniciar Sesión</a
-                  >
+                  <a routerLink="/login" class="text-body custom-link">Iniciar Sesión</a>
                 </p>
               </form>
             </div>
@@ -72,3 +66,37 @@
     </div>
   </div>
 </section>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Términos y condiciones de servicios</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+        El Usuario deberá respetar estos Términos y Condiciones de Uso del sitio web. Las infracciones por acción u omisión de los presentes Términos y Condiciones de Uso generarán el derecho a favor del Administrador de suspender al Usuario que las haya realizado.
+
+        El Usuario se obliga a usar los Servicios Digitales de conformidad con estos Términos y Condiciones, en forma correcta y lícita. En caso contrario, el Administrador podrá suspender la cuenta del Usuario, por considerarlo: violatorio de estos Términos y Condiciones y/o de la Política de Privacidad de estos Servicios Digitales, ofensivo, ilegal, violatorio de derechos de terceros, contrario a la moral y buenas costumbres y amenaza la seguridad de otros Usuarios.
+        
+        Sin embargo, esta posibilidad no implica necesariamente que el contenido de toda la información disponible en los Servicios Digitales haya sido revisado.
+        
+        El Usuario se compromete a:
+        
+        No acceder a datos restringidos o a intentar violar las barreras de seguridad para llegar a ellos.
+        
+        No realizar búsquedas de vulnerabilidades o explotación de las mismas para cualquier fin.
+        
+        No divulgar información acerca de la detección de vulnerabilidades encontradas en los Servicios Digitales.
+        
+        Comunicar al Administrador toda información a la que tenga acceso que pudiera implicar un compromiso a la seguridad de la información o los servicios digitales.
+        
+        La adecuada utilización de todos los recursos de Internet es, sin excepción, de entera responsabilidad del Usuario de los Servicios Digitales.
+       
+      </div>
+    </div>
+  </div>
+</div>
