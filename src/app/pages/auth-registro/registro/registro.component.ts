@@ -6,7 +6,7 @@ import {
   RegisterBodyUser,
 } from 'src/app/core/interfaces/UserCredentials.interface';
 import { Router } from '@angular/router';
-import { LoginResponse } from 'src/app/core/interfaces/ApiResponse.interface';
+
 
 @Component({
   selector: 'app-registro',
@@ -30,7 +30,7 @@ export class RegistroComponent implements OnInit {
       email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', [
         Validators.required,
-        Validators.minLength(8),
+        Validators.minLength(3),
       ]),
     });
   }
