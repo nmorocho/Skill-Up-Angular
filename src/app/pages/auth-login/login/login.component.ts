@@ -12,18 +12,13 @@ export class LoginComponent implements OnInit {
   public loginForm: FormGroup = new FormGroup({});
 
   constructor(private authService: AuthService, 
-    private spi: SpinnerService) {
+  ) {
 
     }
-
-    ngAfterViewInit() {
-     // this.spi.callshow()
-    }
-  
 
   ngOnInit(): void {
     this.initializeForm();
-    //this.spi.callshow();
+  
   }
   
 

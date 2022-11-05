@@ -1,27 +1,11 @@
-.gradient-custom-3 {
-  /* fallback for old browsers */
-  background: #84fab0;
 
-  /* Chrome 10-25, Safari 5.1-6 */
-  background: -webkit-linear-gradient(to right, rgba(132, 250, 176, 0.5), rgba(143, 211, 244, 0.5));
-
-  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  background: linear-gradient(to right, rgba(132, 250, 176, 0.5), rgba(143, 211, 244, 0.5))
-  }
-  .gradient-custom-4 {
-  /* fallback for old browsers */
-  background: #84fab0;
-
-  /* Chrome 10-25, Safari 5.1-6 */
-  background: -webkit-linear-gradient(to right, rgba(132, 250, 176, 1), rgba(143, 211, 244, 1));
-
-  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  background: linear-gradient(to right, rgba(132, 250, 176, 1), rgba(143, 211, 244, 1))
-  }
-
-.custom-gradient {
-  background: rgb(2,0,36);
-background: linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(60,54,53,1) 41%, rgba(248,249,250,1) 86%);
+.fondo {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+   url('https://tatianagomez.com.co/wp-content/uploads/2020/11/8.jpg');
+ //que la imagen ocupe toda la pantalla
+  background-size: cover;
+  background-position: center
+  
 }
 
 .custom-link {
@@ -30,6 +14,16 @@ background: linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(60,54,53,1) 41%, rgba(
 
 .custom-link:hover {
   text-decoration: underline;
+}
+
+
+.login {
+  opacity: 0.9;
+  box-shadow: 2px 2px 2px 1px rgba(10, 10, 10, 0.39);
+}
+
+.login:hover {
+  opacity: 1.0;
 }
 
 
@@ -42,7 +36,7 @@ background: linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(60,54,53,1) 41%, rgba(
   top: 48px;
   position: absolute;
   animation: ldio-lk9a59qv3nr linear 1s infinite;
-  background: #fe718d;
+  background: #17afb9;
   width: 12px;
   height: 24px;
   border-radius: 6px / 12px;
@@ -50,51 +44,51 @@ background: linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(60,54,53,1) 41%, rgba(
 }.ldio-lk9a59qv3nr div:nth-child(1) {
   transform: rotate(0deg);
   animation-delay: -0.9166666666666666s;
-  background: #fe718d;
+  background: #17afb9;
 }.ldio-lk9a59qv3nr div:nth-child(2) {
   transform: rotate(30deg);
   animation-delay: -0.8333333333333334s;
-  background: #fe718d;
+  background: #17afb9;
 }.ldio-lk9a59qv3nr div:nth-child(3) {
   transform: rotate(60deg);
   animation-delay: -0.75s;
-  background: #fe718d;
+  background: #17afb9;
 }.ldio-lk9a59qv3nr div:nth-child(4) {
   transform: rotate(90deg);
   animation-delay: -0.6666666666666666s;
-  background: #fe718d;
+  background: #17afb9;
 }.ldio-lk9a59qv3nr div:nth-child(5) {
   transform: rotate(120deg);
   animation-delay: -0.5833333333333334s;
-  background: #fe718d;
+  background: #17afb9;
 }.ldio-lk9a59qv3nr div:nth-child(6) {
   transform: rotate(150deg);
   animation-delay: -0.5s;
-  background: #fe718d;
+  background:#17afb9;
 }.ldio-lk9a59qv3nr div:nth-child(7) {
   transform: rotate(180deg);
   animation-delay: -0.4166666666666667s;
-  background: #fe718d;
+  background:#17afb9;
 }.ldio-lk9a59qv3nr div:nth-child(8) {
   transform: rotate(210deg);
   animation-delay: -0.3333333333333333s;
-  background: #fe718d;
+  background: #17afb9;
 }.ldio-lk9a59qv3nr div:nth-child(9) {
   transform: rotate(240deg);
   animation-delay: -0.25s;
-  background: #fe718d;
+  background: #17afb9;
 }.ldio-lk9a59qv3nr div:nth-child(10) {
   transform: rotate(270deg);
   animation-delay: -0.16666666666666666s;
-  background: #fe718d;
+  background:#17afb9;
 }.ldio-lk9a59qv3nr div:nth-child(11) {
   transform: rotate(300deg);
   animation-delay: -0.08333333333333333s;
-  background: #fe718d;
+  background: #17afb9;
 }.ldio-lk9a59qv3nr div:nth-child(12) {
   transform: rotate(330deg);
   animation-delay: 0s;
-  background: #fe718d;
+  background: #17afb9;
 }
 .loadingio-spinner-spinner-nu6b77qf4qk {
   width: 200px;
