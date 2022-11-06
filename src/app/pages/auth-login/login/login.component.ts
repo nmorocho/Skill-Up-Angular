@@ -31,19 +31,11 @@ export class LoginComponent implements OnInit {
     this.authService.login(this.loginForm.value).subscribe();
   }
 
-  passwordIsValid(): boolean {
+  controlIsValid(control: string): boolean {
     return !(
-      this.loginForm.get('password').touched &&
-      this.loginForm.get('password').invalid &&
-      this.loginForm.get('password').dirty
-    );
-  }
-
-  emailIsValid(): boolean {
-    return !(
-      this.loginForm.get('email').touched &&
-      this.loginForm.get('email').invalid &&
-      this.loginForm.get('email').dirty
+      this.loginForm.get(control).touched &&
+      this.loginForm.get(control).invalid &&
+      this.loginForm.get(control).dirty
     );
   }
 }
