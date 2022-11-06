@@ -7,9 +7,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LoaderComponent } from '../loader/loader.component';
 
 @NgModule({
-  declarations: [LoginComponent],
+  declarations: [LoginComponent,LoaderComponent],
   imports: [
     CommonModule,
     AuthLoginRoutingModule,
@@ -19,6 +20,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     NgxSpinnerModule,
     BrowserAnimationsModule
   ],
-  exports: [LoginComponent],
+  exports: [LoginComponent,LoaderComponent],
 })
 export class AuthLoginModule {}

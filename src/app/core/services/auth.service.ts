@@ -11,7 +11,7 @@ import { environment } from 'src/environments/environment';
 import { TokenService } from './token.service';
 import { Router } from '@angular/router';
 import { UserDetails } from '../interfaces/UserDetails.interface';
-import { SpinnerService } from 'src/app/spinner/spinner.service';
+import { SpinnerService } from 'src/app/core/services/spinner.service';
 
 @Injectable({
   providedIn: 'root',

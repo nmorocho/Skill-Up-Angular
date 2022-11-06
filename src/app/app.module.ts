@@ -15,6 +15,7 @@ import { AuthInterceptorService } from './interceptors/auth-interceptor.service'
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { UserDetailsComponent } from './pages/users/user-details/user-details.component';
 
+
 @NgModule({
   declarations: [AppComponent, HomeComponent, UserDetailsComponent],
   imports: [
