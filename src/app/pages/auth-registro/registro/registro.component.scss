@@ -1,33 +1,26 @@
-.gradient-custom-3 {
-    /* fallback for old browsers */
-    background: #84fab0;
+.fondo {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+    url('https://fondosmil.com/fondo/71322.jpg');
+   //que la imagen ocupe toda la pantalla
+    background-size: cover;
+    background-position: center
     
-    /* Chrome 10-25, Safari 5.1-6 */
-    background: -webkit-linear-gradient(to right, rgba(132, 250, 176, 0.5), rgba(143, 211, 244, 0.5));
-    
-    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    background: linear-gradient(to right, rgba(132, 250, 176, 0.5), rgba(143, 211, 244, 0.5))
-    }
-    .gradient-custom-4 {
-    /* fallback for old browsers */
-    background: #84fab0;
-    
-    /* Chrome 10-25, Safari 5.1-6 */
-    background: -webkit-linear-gradient(to right, rgba(132, 250, 176, 1), rgba(143, 211, 244, 1));
-    
-    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    background: linear-gradient(to right, rgba(132, 250, 176, 1), rgba(143, 211, 244, 1))
-    }
-    
-.custom-gradient {
-    background: rgb(2,0,36);
-background: linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(60,54,53,1) 41%, rgba(248,249,250,1) 86%);
-}
-
-.custom-link {
+  }
+  
+  .custom-link {
     text-decoration: none;
-}
-
-.custom-link:hover {
+  }
+  
+  .custom-link:hover {
     text-decoration: underline;
-}
+  }
+  
+  
+  .login {
+    opacity: 0.9;
+    box-shadow: 2px 2px 2px 1px rgba(10, 10, 10, 0.39);
+  }
+  
+  .login:hover {
+    opacity: 1.0;
+  }

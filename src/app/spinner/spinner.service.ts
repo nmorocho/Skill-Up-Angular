@@ -7,7 +7,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 export class SpinnerService {
 
   constructor(private spi: NgxSpinnerService) { }
-
+  
 callshow(){
 this.spi.show()
 }

@@ -35,9 +35,17 @@
             Perfil
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Ver perfil</a></li>
             <li>
-              <a class="dropdown-item" href="#" (click)="logout()"
+              <a
+                class="dropdown-item"
+                routerLink="/my-profile"
+                routerLinkActive="router-link-active"
+                role="button"
+                >Ver perfil</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" (click)="logout()" role="button"
                 >Cerrar sesión</a
               >
             </li>
