@@ -10,6 +10,7 @@ import { LoginResponse } from '../interfaces/ApiResponse.interface';
 import { environment } from 'src/environments/environment';
 import { TokenService } from './token.service';
 import { Router } from '@angular/router';
+import { UserDetails } from '../interfaces/UserDetails.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -55,5 +56,15 @@ export class AuthService {
       },
       { headers: customHeaders }
     );
+  }
+
+  viewProfile(): Observable<UserDetails> {
+    const token = this.tokenService.getToken();
+    const customHeaders = new HttpHeaders({
+      Authorization: `Bearer ${token}`,
+    });
+    return this.http.get<UserDetails>(`${environment.API_URL}/auth/me`, {
+      headers: customHeaders,
+    });
   }
 }
