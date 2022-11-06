@@ -40,11 +40,14 @@
                 class="dropdown-item"
                 [routerLink]="['/my-profile']"
                 routerLinkActive="router-link-active"
+                role="button"
                 >Ver perfil</a
               >
             </li>
             <li>
-              <a class="dropdown-item" (click)="logout()">Cerrar sesión</a>
+              <a class="dropdown-item" (click)="logout()" role="button"
+                >Cerrar sesión</a
+              >
             </li>
           </ul>
         </li>
