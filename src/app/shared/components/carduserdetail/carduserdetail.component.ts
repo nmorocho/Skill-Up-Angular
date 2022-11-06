@@ -12,5 +12,8 @@ export class CarduserdetailComponent implements OnInit {
   @Input() detailUser: RegisterBodyUser;
   ngOnInit(): void {
   }
+  showDetailAccounts() {
+    console.log(this.detailUser);
+  }
 
 }

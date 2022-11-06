@@ -16,14 +16,9 @@ export class AuthInterceptorService implements HttpInterceptor {
   ) {}
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-
     this.spi.callshow();
     let request = req;
-
-
     return next.handle(request).pipe(
-
-      
       catchError((err: HttpErrorResponse) => {
         this.spi.callhide();
         if (err.status === 401) {       
@@ -38,7 +33,6 @@ export class AuthInterceptorService implements HttpInterceptor {
           alert('Error en el servidor') 
         }
         return throwError( err );
-
       })
     );
   }

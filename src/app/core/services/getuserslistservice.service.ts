@@ -8,6 +8,7 @@ import { environment } from 'src/environments/environment';
 })
 export class GetuserslistserviceService {
   constructor(private http: HttpClient) { }
+  
   private customHeaders = new HttpHeaders(
     {
       "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVzZXJJZCI6NjgsInJvbGVJZCI6MX0sImlhdCI6MTY2Nzc1ODM1NywiZXhwIjoxNjY3ODQ0NzU3fQ.YiqHPBG92xJ0nN2C6Sy85sd6v3E0SqJuYes6Nzt6gww"
@@ -18,7 +19,5 @@ export class GetuserslistserviceService {
   getTenUsers(page: number): Observable<any> {
     return this.http.get(`${environment.API_URL}/users?page=${page}`, { headers: this.customHeaders })
   }
-  getTenAccounts(page: number): Observable<any> {
-    return this.http.get(`${environment.API_URL}/accounts?page=${page}`, { headers: this.customHeaders })
-  }
+  
 }
