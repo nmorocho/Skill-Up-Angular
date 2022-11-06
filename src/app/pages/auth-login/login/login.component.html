@@ -1,5 +1,4 @@
 <ngx-spinner>
-
   <div class="loadingio-spinner-spinner-nu6b77qf4qk">
     <div class="ldio-lk9a59qv3nr">
       <div></div>
@@ -16,41 +15,70 @@
       <div></div>
     </div>
   </div>
-
 </ngx-spinner>
 <section class="vh-100 bg-image fondo">
-  <div class="mask d-flex align-items-center h-100 ">
-    <div class="container h-100 ">
+  <div class="mask d-flex align-items-center h-100">
+    <div class="container h-100">
       <div class="row d-flex justify-content-center align-items-center h-100">
-        <div class="col-12 col-md-9 col-lg-7 col-xl-6 ">
-          <div class="card login" style="border-radius: 30px ">
-            <div class="card-body p-5  ">
-              <h2 class="text-uppercase text-center mb-5">Iniciar sesión</h2>
+        <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+          <div class="card login" style="border-radius: 30px">
+            <div class="card-body p-5">
+              <h2 class="text-uppercase text-center my-5">Iniciar sesión</h2>
               <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
                 <div class="form-floating mb-3">
-                  <input formControlName="email" type="email" class="form-control" id="floatingInput"
-                    placeholder="name@example.com" />
-
-
+                  <input
+                    formControlName="email"
+                    type="email"
+                    class="form-control"
+                    id="floatingInput"
+                    placeholder="name@example.com"
+                    [ngClass]="controlIsValid('email') ? '' : 'is-invalid'"
+                  />
+                  <div
+                    *ngIf="!controlIsValid('email')"
+                    class="invalid-feedback"
+                  >
+                    <p>Debe ingresarse un email valido.</p>
+                  </div>
                   <label for="floatingInput">Email</label>
                 </div>
+
                 <div class="form-floating mb-3">
-
-                  <input formControlName="password" type="password" class="form-control" id="floatingInput" />
+                  <input
+                    formControlName="password"
+                    type="password"
+                    class="form-control"
+                    id="floatingInput"
+                    placeholder="Contraseña"
+                    [ngClass]="controlIsValid('password') ? '' : 'is-invalid'"
+                  />
+                  <div
+                    *ngIf="!controlIsValid('password')"
+                    class="invalid-feedback"
+                  >
+                    La contraseña debe contener 5 o más caracteres
+                  </div>
                   <label for="floatingInput">Contraseña</label>
-                  <div *ngIf="loginForm.get('password').touched && loginForm.get('password').invalid" class="alert alert-danger">Debe contener al menos 3 o más carácteres</div>
                 </div>
 
-                <div class="d-flex justify-content-center">
-                  <button type="submit" class="btn btn-outline-dark">
-                    Ingresar
-                  </button>
-                </div>
+                <div class="d-flex flex-column align-items-center gap-3">
+                  <div class="d-flex justify-content-center">
+                    <button
+                      type="submit"
+                      class="btn btn-primary"
+                      [disabled]="loginForm.invalid"
+                    >
+                      Ingresar
+                    </button>
+                  </div>
 
-                <p class="text-center text-muted mt-5 mb-0">
-                  ¿No tienes una cuenta?
-                  <a routerLink="/register" class="text-body custom-link">Crear Cuenta</a>
-                </p>
+                  <p class="text-center text-muted mt-2 mb-0">
+                    ¿No tienes una cuenta?
+                    <a routerLink="/register" class="custom-link"
+                      >Crear cuenta.</a
+                    >
+                  </p>
+                </div>
               </form>
             </div>
           </div>
@@ -58,6 +86,4 @@
       </div>
     </div>
   </div>
-
-
 </section>

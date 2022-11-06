@@ -11,6 +11,7 @@ import { environment } from 'src/environments/environment';
 import { TokenService } from './token.service';
 import { Router } from '@angular/router';
 import { UserDetails } from '../interfaces/UserDetails.interface';
+import { SpinnerService } from 'src/app/spinner/spinner.service';
 
 @Injectable({
   providedIn: 'root',
@@ -19,7 +20,8 @@ export class AuthService {
   constructor(
     private http: HttpClient,
     private tokenService: TokenService,
-    private router: Router
+    private router: Router,
+    private spinnerService: SpinnerService
   ) {}
 
   createUser(user: RegisterBodyUser): Observable<any> {
@@ -38,6 +40,7 @@ export class AuthService {
   }
 
   logout(): void {
+    this.spinnerService.callhide();
     this.tokenService.removeToken();
     this.router.navigate(['login']);
   }
