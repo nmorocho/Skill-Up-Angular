@@ -44,7 +44,7 @@
 
 <!-- Ver detalle de una cuenta -->
 
-<p><label>Id</label><input  ngModel="accountId" (keydown.enter)="viewAccountDetail()">
+<p><label>Id</label><input  [(ngModel)]="accountId" (keydown.enter)="viewAccountDetail()">
 <button style="color: red;" (click)="viewAccountDetail()">Ver detalle de una cuenta</button></p>
 
 
