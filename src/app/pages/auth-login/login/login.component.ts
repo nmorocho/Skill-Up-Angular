@@ -11,12 +11,13 @@ import { SpinnerService } from 'src/app/spinner/spinner.service';
 export class LoginComponent implements OnInit {
   public loginForm: FormGroup = new FormGroup({});
 
-  constructor(private authService: AuthService, 
+  constructor(private authService: AuthService, private spi: SpinnerService
   ) {
 
     }
 
   ngOnInit(): void {
+    this.spi.callhide();
     this.initializeForm();
   
   }
