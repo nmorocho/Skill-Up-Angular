@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { UserDetails } from 'src/app/core/interfaces/UserDetails.interface';
+import { AuthService } from 'src/app/core/services/auth.service';
 
 @Component({
   selector: 'app-user-details',
@@ -6,16 +8,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user-details.component.scss'],
 })
 export class UserDetailsComponent implements OnInit {
-  user = {
-    first_name: 'Nahuel',
-    last_name: 'Morocho',
-    email: 'nahuelmorocho@gmail.com',
-    password: 'abc123',
-    roleId: 2,
-    points: 50,
-  };
+  user: UserDetails;
 
-  constructor() {}
+  constructor(private authService: AuthService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.authService.viewProfile().subscribe((res: UserDetails) => {
+      this.user = res;
+    });
+  }
 }
