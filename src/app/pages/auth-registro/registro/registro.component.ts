@@ -38,7 +38,7 @@ export class RegistroComponent implements OnInit {
   onSignUp() {
     this._iUser = {
       ...this.signUpForm.value,
-      roleId: 2,
+      roleId: 1,
       points: 1,
     };
 
