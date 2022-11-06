@@ -1,4 +1,53 @@
 <app-navbar></app-navbar>
+
+<!-- Listar todos los usuarios -->
+
+<br>
+<p><button (click)="usersList()">Listar todos los usuarios</button></p>
+<br>
+
+<!-- Ver detalle de un usuario -->
+
+<p><button style="color: red;" (click)="viewUserDetail()">Ver detalle de un usuario (id)</button></p>
+<br>
+<br>
+
+<!-- Modificar un usuario existente -->
+
+<!-- <p><button (click)="changeUser(id)">Modificar un usuario (id) + campos a modificar</button></p>
+<p><label>Id del usuario</label><input type="number" [value]="id"></p>
+<p><label>Nombre</label><input></p>
+<p><label>Apellido</label><input></p>
+<p><label>Email</label><input></p>
+<p><label>Password</label><input></p>
+<p><label>roleId</label><input></p>
+<p><label>Points</label><input></p>
+<br>
+<br> -->
+
+<!-- Ver detalle de un usuario -->
+
+<!-- <p><button (click)="viewUserDetails()">Ver todos los detalles de un usuario</button></p>
+<br> -->
+
+<!-- Eliminar usuario -->
+
+<!-- <p><label>Id</label><input [value]="id"><button (click)="deleteUserById(id)">Eliminar un usuario por id</button></p>
+<br>
+<br> -->
+<!-- Listar todas las cuentas -->
+
+<p><button (click)="toListAllAccounts()">Listar todas las cuentas (page=1)</button></p>
+<p><button (click)="nextPage()">Siguiente page</button></p>
+<br>
+<br>
+
+<!-- Ver detalle de una cuenta -->
+
+<p><label>Id</label><input  ngModel="accountId" (keydown.enter)="viewAccountDetail()">
+<button style="color: red;" (click)="viewAccountDetail()">Ver detalle de una cuenta</button></p>
+
+
 <div id="container">
 
 </div>
