@@ -13,10 +13,12 @@ import { TokenInterceptor } from './interceptors/token.interceptor';
 import { AuthInterceptorService } from './interceptors/auth-interceptor.service';
 import { UserDetailsComponent } from './pages/users/user-details/user-details.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { SendmoneyComponent } from './pages/sendmoney/sendmoney.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, UserDetailsComponent],
+  declarations: [AppComponent, HomeComponent, UserDetailsComponent, SendmoneyComponent],
   imports: [
     NgxSpinnerModule,
     BrowserModule,
@@ -27,11 +29,12 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     AuthLoginModule,
     HttpClientModule,
     RouterModule,
+    ReactiveFormsModule
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
-    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true},
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }
   ],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }
