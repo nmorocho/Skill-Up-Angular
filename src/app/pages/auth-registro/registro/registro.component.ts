@@ -7,7 +7,6 @@ import {
 } from 'src/app/core/interfaces/UserCredentials.interface';
 import { Router } from '@angular/router';
 
-
 @Component({
   selector: 'app-registro',
   templateUrl: './registro.component.html',
@@ -25,13 +24,22 @@ export class RegistroComponent implements OnInit {
 
   initializeForm(): void {
     this.signUpForm = new FormGroup({
-      last_name: new FormControl('', Validators.required),
-      first_name: new FormControl('', Validators.required),
+      last_name: new FormControl('', [
+        Validators.required,
+        Validators.minLength(3),
+        Validators.maxLength(20),
+      ]),
+      first_name: new FormControl('', [
+        Validators.required,
+        Validators.minLength(3),
+        Validators.maxLength(20),
+      ]),
       email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', [
         Validators.required,
-        Validators.minLength(3),
+        Validators.minLength(5),
       ]),
+      termsAndService: new FormControl(false, [Validators.requiredTrue]),
     });
   }
 
@@ -68,5 +76,13 @@ export class RegistroComponent implements OnInit {
         console.log(error);
       },
     });
+  }
+
+  controlIsValid(control: string): boolean {
+    return !(
+      this.signUpForm.get(control).touched &&
+      this.signUpForm.get(control).invalid &&
+      this.signUpForm.get(control).dirty
+    );
   }
 }
