@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { GetallaccountsService } from 'src/app/core/services/getallaccounts.service';
 import { GetuserslistserviceService } from 'src/app/core/services/getuserslistservice.service';
-import { SpinnerService } from 'src/app/spinner/spinner.service';
 
 @Component({
   selector: 'app-sendmoney',
@@ -11,14 +9,15 @@ import { SpinnerService } from 'src/app/spinner/spinner.service';
 })
 export class SendmoneyComponent implements OnInit {
   constructor(
-    private userlistservice: GetuserslistserviceService, 
-    private allacountservice: GetallaccountsService) { }
+    private userlistservice: GetuserslistserviceService,
+    ) { }
   public searchUsersForm: FormGroup;
   public isLoading: boolean = false;
   public userList: any[] = [];
-  
+  public isDisabledPrevious: boolean = true;
+  public isDisabledNext: boolean = false;
   private contador: number = 1;
-  
+
   ngOnInit(): void {
     this.searchUsersForm = new FormGroup({
       userId: new FormControl('')
@@ -30,17 +29,25 @@ export class SendmoneyComponent implements OnInit {
       next: (dataUser) => {
         this.userList = [dataUser];
         this.searchUsersForm.reset();
-        this.allacountservice.searchAccounts();
         this.isLoading = false;
       },
       error: (error) => {
         console.log(error);
         this.isLoading = false;
         this.searchUsersForm.reset();
+        this.userList = [];
       }
     })
   }
-  
+  getTenUsers() {
+    this.contador = 1;
+    this.userlistservice.getTenUsers(this.contador).subscribe({
+      next: (users) => {
+        this.userList = users.data;
+      },
+      error: (error) => console.log(error)
+    })
+  }
   getAllUsers() {
     this.isLoading = true;
     this.searchUsersForm.reset();
@@ -53,16 +60,43 @@ export class SendmoneyComponent implements OnInit {
             this.getAllUsers();
             this.searchUsersForm.reset();
           } else {
-            this.allacountservice.searchAccounts();
             this.isLoading = false;
+            console.log(this.userList);
           }
         },
         error: (error) => {
           console.log(error);
-          this.isLoading = false;
           this.searchUsersForm.reset();
+          this.isLoading = false;
         },
       }
     )
+  }
+  previousPage() {
+    if (this.contador <= 1) {
+      this.isDisabledPrevious = true;
+    } else {
+      this.contador--;
+      this.isDisabledNext = false;
+      this.userlistservice.getTenUsers(this.contador).subscribe({
+        next: (users) => {
+          this.userList = users.data;
+        },
+        error: (error) => console.log(error)
+      })
+    }
+  }
+  nextPage() {
+    this.contador++;
+    this.isDisabledPrevious = false;
+    this.userlistservice.getTenUsers(this.contador).subscribe({
+      next: (users) => {
+        if (users.nextPage === null) {
+          this.isDisabledNext = true;
+        }
+        this.userList = users.data;
+      },
+      error: (error) => console.log(error)
+    })
   }
 }

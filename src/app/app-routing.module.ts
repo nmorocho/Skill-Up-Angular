@@ -6,6 +6,7 @@ import { RegistroComponent } from './pages/auth-registro/registro/registro.compo
 import { HomeComponent } from './pages/home/home.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found/page-not-found.component';
 import { SendmoneyComponent } from './pages/sendmoney/sendmoney.component';
+import { UseraccountlistComponent } from './pages/useraccountlist/useraccountlist.component';
 
 const routes: Routes = [
   {
@@ -30,7 +31,12 @@ const routes: Routes = [
       {
         path: 'usuarios-list',
         component: SendmoneyComponent
-      }]
+      },
+      {
+        path: 'enviar-divisas',
+        component: UseraccountlistComponent
+      }
+    ]
   },
   {
     path: 'register',

@@ -15,10 +15,11 @@ import { UserDetailsComponent } from './pages/users/user-details/user-details.co
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { SendmoneyComponent } from './pages/sendmoney/sendmoney.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { UseraccountlistComponent } from './pages/useraccountlist/useraccountlist.component';
 
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, UserDetailsComponent, SendmoneyComponent],
+  declarations: [AppComponent, HomeComponent, UserDetailsComponent, SendmoneyComponent, UseraccountlistComponent],
   imports: [
     NgxSpinnerModule,
     BrowserModule,

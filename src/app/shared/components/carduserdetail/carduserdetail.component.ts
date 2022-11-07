@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { RegisterBodyUser } from 'src/app/core/interfaces/UserCredentials.interface';
+import { Router } from '@angular/router';
+import { GetallaccountsService } from 'src/app/core/services/getallaccounts.service';
 
 @Component({
   selector: 'app-carduserdetail',
@@ -8,12 +9,13 @@ import { RegisterBodyUser } from 'src/app/core/interfaces/UserCredentials.interf
 })
 export class CarduserdetailComponent implements OnInit {
 
-  constructor() { }
-  @Input() detailUser: RegisterBodyUser;
+  constructor(private router: Router,private getallaccountsrv:GetallaccountsService) { }
+  @Input() detailUser: any
   ngOnInit(): void {
   }
   showDetailAccounts() {
-    console.log(this.detailUser);
+    this.router.navigate(['usuarios/enviar-divisas']);
+    this.getallaccountsrv.idUser = this.detailUser.id
   }
 
 }
