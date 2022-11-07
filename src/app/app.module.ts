@@ -19,10 +19,22 @@ import { TransactionListComponent } from './pages/transactions/transaction-list/
 import { TransactionEditComponent } from './pages/transactions/transaction-edit/transaction-edit.component';
 import { TransactionFilterComponent } from './pages/transactions/transaction-filter/transaction-filter.component';
 import { DivisasComponent } from './pages/divisas/divisas.component';
+import { PlazoFijoComponent } from './pages/inversiones/plazo-fijo/plazo-fijo.component';
+import { PlazoFijoProyeccionComponent } from './pages/inversiones/plazo-fijo-proyeccion/plazo-fijo-proyeccion.component';
 
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, UserDetailsComponent, PasswordResetComponent, TransactionListComponent, TransactionEditComponent, TransactionFilterComponent, DivisasComponent],
+  declarations: [
+    AppComponent,
+    HomeComponent,
+    UserDetailsComponent,
+    PasswordResetComponent,
+    TransactionListComponent,
+    TransactionEditComponent,
+    TransactionFilterComponent,
+    DivisasComponent,
+    PlazoFijoComponent,
+    PlazoFijoProyeccionComponent],
   imports: [
     NgxSpinnerModule,
     BrowserModule,
