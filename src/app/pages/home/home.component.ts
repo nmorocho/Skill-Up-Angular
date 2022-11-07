@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit {
   }
 
   pageNumber: number = 1;
-  allTheUsers: unknown[] = [];
+
 
   toListAllAccounts() {
     return this.http.get(
@@ -25,6 +25,26 @@ export class HomeComponent implements OnInit {
     .subscribe((res) => {
       console.log('Listar todas las cuentas', Object.values(res).flat(2));
     })
+  }
+
+  nextPages() {
+    return this.http.get(
+      `${environment.API_URL}/accounts/?page=${this.pageNumber}`)
+      .subscribe((res) => {
+        console.log('Listar todas las cuentas', Object.values(res).flat(2));
+        const result = Object.values(res).flat(2);
+        this.allTheUsers.push(result);
+        console.log('Listar todos los usuarios allTheUsers', this.allTheUsers);
+      })
+  }
+
+  allTheUsers: unknown[] = [];
+
+  allAccounts() {
+    while (this.pageNumber < 20) {
+      this.pageNumber += 1;
+      this.nextPages()
+    }
   }
 
 
