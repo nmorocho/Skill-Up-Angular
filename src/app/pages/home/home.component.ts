@@ -119,6 +119,48 @@ nextPage() {
     })
 }
 
+nextPages() {
+  return this.http.get(
+    `${environment.API_URL}/accounts/?page=${this.pageNumber}`)
+    .subscribe((res) => {
+      console.log('Listar todas las cuentas', Object.values(res).flat(2));
+      const result = Object.values(res).flat(2);
+      this.allTheUsers.push(result);
+      console.log('Listar todos los usuarios allTheUsers', this.allTheUsers);
+    })
+}
+
+allTheUsers: unknown[] = [];
+
+allAccounts() {
+  while (this.pageNumber < 20) {
+    this.pageNumber += 1;
+    this.nextPages()
+  }
+}
+
+// allPages: unknown[] = [];
+
+// listAllPages() {
+//   this.pageNumber = 19;
+//   while (this.pageNumber < 20) {
+//     this.pageNumber += 1;
+//     console.log('this.pagesNumber', this.pageNumber)
+
+//     return this.http.get(
+//       `${environment.API_URL}/accounts/?page=${this.pageNumber}`)
+//       .subscribe((res) => {
+//         const result = Object.values(res).flat(2);
+//         this.allPages.push(result);
+//         console.log('All pages', this.allPages);
+//         console.log('Listar todas las cuentas', Object.values(res).flat(2));
+//       })
+//     }
+//     console.log('this.allPages', this.allPages)
+//     return this.pageNumber;
+// }
+
+
 // ACCOUNTS Depositar o transferir
 
 // ACCOUNTS Ver detalle de una cuenta

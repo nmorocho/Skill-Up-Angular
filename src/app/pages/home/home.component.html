@@ -39,6 +39,10 @@
 
 <p><button (click)="toListAllAccounts()">Listar todas las cuentas (page=1)</button></p>
 <p><button (click)="nextPage()">Siguiente page</button></p>
+<p><button style="background: rgb(53, 157, 216);" (click)="allAccounts()">Todas las cuentas</button></p>
+<div *ngFor="let user of allTheUsers">
+  <pre><p>{{ user | json }}</p></pre>
+</div>
 <br>
 <br>
 

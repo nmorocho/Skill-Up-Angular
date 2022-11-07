@@ -14,10 +14,15 @@ import { TokenInterceptor } from './interceptors/token.interceptor';
 import { AuthInterceptorService } from './interceptors/auth-interceptor.service';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { UserDetailsComponent } from './pages/users/user-details/user-details.component';
+import { PasswordResetComponent } from './pages/auth-password-reset/password-reset/password-reset.component';
+import { TransactionListComponent } from './pages/transactions/transaction-list/transaction-list.component';
+import { TransactionEditComponent } from './pages/transactions/transaction-edit/transaction-edit.component';
+import { TransactionFilterComponent } from './pages/transactions/transaction-filter/transaction-filter.component';
+import { DivisasComponent } from './pages/divisas/divisas.component';
 
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, UserDetailsComponent],
+  declarations: [AppComponent, HomeComponent, UserDetailsComponent, PasswordResetComponent, TransactionListComponent, TransactionEditComponent, TransactionFilterComponent, DivisasComponent],
   imports: [
     NgxSpinnerModule,
     BrowserModule,
