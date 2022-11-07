@@ -2,6 +2,11 @@
 
 <app-plazo-fijo></app-plazo-fijo>
 
+<p><button (click)="toListAllAccounts()">Listar todas las cuentas (page=1)</button></p>
+<div *ngFor="let user of allTheUsers">
+<pre><p>{{ user | json }}</p></pre>
+</div>
+
 <div id="container">
 
 </div>
