@@ -1,1 +1,14 @@
 <p>plazo-fijo works!</p>
+
+<div style="padding: 20px">
+  <p><label>userId</label><input type="number" [(ngModel)]="data.userId"></p>
+  <p><label>accountId</label><input type="number" [(ngModel)]="data.accountId"></p>
+  <p><label>amount</label><input type="number" [(ngModel)]="data.amount"></p>
+  <p><label>creation_date</label><input type="date" [(ngModel)]="data.creation_date"></p>
+  <p><label>closing_date</label><input type="date" [(ngModel)]="data.closing_date"></p>
+  <button (click)="createFixedDeposit(data)">Crear plazo fijo</button>
+</div>
+
+<div>
+  <pre><h4>{{ data | json }}</h4></pre>
+</div>

@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient} from '@angular/common/http';
+import { environment } from 'src/environments/environment';
+import { FixedDeposit, FixedDepositCreated } from 'src/app/core/interfaces/FixedDeposits';
+
 
 @Component({
   selector: 'app-plazo-fijo',
@@ -7,9 +11,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PlazoFijoComponent implements OnInit {
 
-  constructor() { }
+  data: FixedDeposit = {
+    userId: 0,
+    accountId: 0,
+    amount: 0,
+    creation_date: new Date(),
+    closing_date: new Date(),
+  }
+
+  constructor(
+    private http: HttpClient
+  ) { }
 
   ngOnInit(): void {
+  }
+
+  createFixedDeposit(data: FixedDeposit) {
+    this.data = data;
+    return this.http.post<FixedDepositCreated>(`${environment.API_URL}/fixeddeposits`, this.data)
+    .subscribe((res) => console.log('Plazo fijo creado', res))
   }
 
 }
