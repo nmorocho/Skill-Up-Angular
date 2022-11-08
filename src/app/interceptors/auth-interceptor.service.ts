@@ -16,14 +16,9 @@ export class AuthInterceptorService implements HttpInterceptor {
   ) {}
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-
     this.spi.callshow();
     let request = req;
-
-
     return next.handle(request).pipe(
-
-      
       catchError((err: HttpErrorResponse) => {
         this.spi.callhide();
         if (err.status === 401) {       
@@ -31,11 +26,13 @@ export class AuthInterceptorService implements HttpInterceptor {
         }
         else if (err.status === 403) {       
           alert('No tiene permisos para acceso')      
-        }else if( err.status === 500){        
+        }else if( err.status === 404){        
+          alert('Recurso no encontrado') 
+        }
+        else if( err.status === 500){        
           alert('Error en el servidor') 
         }
         return throwError( err );
-
       })
     );
   }

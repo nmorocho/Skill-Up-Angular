@@ -4,7 +4,6 @@ import { CommonModule } from '@angular/common';
 import { AuthRegistroRoutingModule } from './auth-registro-routing.module';
 import { RegistroComponent } from './registro/registro.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [RegistroComponent],
