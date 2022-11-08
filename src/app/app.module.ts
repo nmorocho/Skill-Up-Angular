@@ -17,12 +17,13 @@ import { UserDetailsComponent } from './pages/users/user-details/user-details.co
 import { SendmoneyComponent } from './pages/sendmoney/sendmoney.component';
 import { UseraccountlistComponent } from './pages/useraccountlist/useraccountlist.component';
 import { SharedModule } from './shared/shared.module';
+import { NumbersDirective } from './directives/numbers.directive';
 
 
   
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, UserDetailsComponent, SendmoneyComponent, UseraccountlistComponent],
+  declarations: [AppComponent, HomeComponent, UserDetailsComponent, SendmoneyComponent, UseraccountlistComponent, NumbersDirective],
 
   imports: [
     NgxSpinnerModule,
