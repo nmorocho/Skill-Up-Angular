@@ -21,6 +21,7 @@ import { TransactionFilterComponent } from './pages/transactions/transaction-fil
 import { DivisasComponent } from './pages/divisas/divisas.component';
 import { PlazoFijoComponent } from './pages/inversiones/plazo-fijo/plazo-fijo.component';
 import { PlazoFijoProyeccionComponent } from './pages/inversiones/plazo-fijo-proyeccion/plazo-fijo-proyeccion.component';
+import { NumbersDirective } from './directives/numbers.directive';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { PlazoFijoProyeccionComponent } from './pages/inversiones/plazo-fijo-pro
     TransactionFilterComponent,
     DivisasComponent,
     PlazoFijoComponent,
-    PlazoFijoProyeccionComponent],
+    PlazoFijoProyeccionComponent,
+    NumbersDirective],
   imports: [
     NgxSpinnerModule,
     BrowserModule,
