@@ -16,3 +16,13 @@ export interface FixedDepositCreated {
     updatedAt: Date;
     createdAt: Date;
 }
+
+export interface AccountUser  {
+  id: number;
+  creationDate: Date;
+  money: number;
+  isBlocked: boolean;
+  userId: number;
+  createdAt: Date;
+  updatedAt: Date;
+}

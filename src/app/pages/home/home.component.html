@@ -2,11 +2,38 @@
 
 <app-plazo-fijo></app-plazo-fijo>
 
-<p><button style="background: rgb(53, 157, 216);" (click)="allAccounts()">Todas las cuentas</button></p>
-<div *ngFor="let user of allTheUsers">
-<pre><p>{{ user | json }}</p></pre>
-</div>
+<br><br>
 
-<div id="container">
+<p><button style="background: rgb(53, 157, 216);" (click)="previousPage()">Anterior</button>
+  <button style="background: rgb(53, 157, 216);" (click)="nextPage()">Siguiente</button></p>
 
-</div>
+  <div *ngFor="let user of tenAccountUsersResult">
+
+    <!-- <pre><p>{{ user | json }}</p></pre> -->
+
+    <div style="padding: 20px;" *ngIf="!hide === true">
+      <h6>userId: {{ user.id }}</h6>
+      <h6>creationDate: {{ user.creationDate }}</h6>
+      <h6>money: {{ user.money }}</h6>
+      <h6>isBlocked: {{ user.isBlocked }}</h6>
+      <h6>userId: {{ user.userId }}</h6>
+      <h6>createdAt: {{ user.createdAt }}</h6>
+      <h6>updatedAt: {{ user.updatedAt }}</h6>
+      <p><button style="background: rgb(53, 157, 216);" (click)="viewContact(user)">Ver Contacto</button></p>
+    </div>
+
+
+  </div>
+
+  <div style="padding: 20px;" *ngIf="hide === true">
+    <div>
+      <pre>{{ accountUser | json }}</pre>
+      <p><button style="color: white;background: black;" (click)="close()">Cerrar</button></p>
+    </div>
+  </div>
+
+
+
+
+
+
