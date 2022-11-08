@@ -29,7 +29,15 @@ export class PlazoFijoComponent implements OnInit {
   createFixedDeposit(data: FixedDeposit) {
     this.data = data;
     return this.http.post<FixedDepositCreated>(`${environment.API_URL}/fixeddeposits`, this.data)
-    .subscribe((res) => console.log('Plazo fijo creado', res))
+    .subscribe((res) => {
+      this.data = Object(res).flat(2);
+      console.log(Array.of(res));
+      console.log('This data',this.data);
+      console.log('Plazo fijo creado', res);
+    }
+
+
+    )
   }
 
 }

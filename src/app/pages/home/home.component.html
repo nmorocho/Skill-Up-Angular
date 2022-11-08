@@ -2,6 +2,11 @@
 
 <app-plazo-fijo></app-plazo-fijo>
 
+<p><button style="background: rgb(53, 157, 216);" (click)="allAccounts()">Todas las cuentas</button></p>
+<div *ngFor="let user of allTheUsers">
+<pre><p>{{ user | json }}</p></pre>
+</div>
+
 <div id="container">
 
 </div>
