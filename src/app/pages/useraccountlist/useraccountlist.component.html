@@ -1,0 +1,169 @@
+<app-loader></app-loader>
+
+<div id="fondo">
+  <app-navbar></app-navbar>
+
+  <div class="m-4">
+    <div class="container card shadow d-flex justify-content-center ">
+      <!-- nav options -->
+      <ul class="nav nav-pills mb-3 shadow-sm" id="pills-tab" role="tablist">
+
+
+        <li class="nav-item">
+          <h4 class="nav-link manito ">Cuentas asociadas al usuario</h4>
+          
+        </li>
+
+
+      </ul>
+
+      <!-- content -->
+      <div class="tab-content" id="pills-tabContent p-3">
+        <!-- 1st card -->
+        <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+
+          <div class="scroll" *ngIf="!isLoading">
+
+            <div class="" *ngFor="let account of userAccounts">
+              <ul class="ccontent ">
+                <li>
+                  <div class="wrapp">
+                    <!--
+  (click)="getUser(user.id)"
+ -->
+                    <div class="manito "> Id de cuenta: {{account.id }} </div>
+                    <p> <strong> creacion de la cuenta: </strong> {{account.creationDate| date:'dd/MM/YYYY'}} </p> 
+
+
+                  </div>
+                </li>
+              </ul>
+            </div>
+            
+
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+
+   
+
+  </div>
+  
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+<!--
+<div id="fondo">
+
+  <app-navbar></app-navbar>
+
+<div class="container scroll">
+   
+    <div class="row m-5">
+        <div class="col-md-12">
+
+        <div class="card rounded-0" *ngIf="!isLoading">
+          <div class="row align-items-center">
+            <div id="fondito" class="col-md-8 mb-3 mb-sm-0 m-4 " *ngFor="let account of userAccounts" >
+              <h5>
+                <a  class="text-primary manito " > <strong>  Id de cuenta: </strong> {{account.id}}</a> <br>
+              </h5>
+
+                 <a class="text-black"> <strong> creacion de la cuenta: </strong> {{account.creationDate}}</a> <br>
+                 
+              <div class="text-sm op-5"> <a class="text-black mr-2" > <strong> creado a las </strong> : {{account.createdAt}} </a> <a class="text-black mr-2" >modificada en : {{account.updatedAt}}</a> </div>
+            </div>
+            
+          </div>
+        </div>
+       
+    </div>
+</div>
+</div>
+
+
+</div>
+
+
+
+-->
+
+
+
+
+
+
+<!--
+
+
+
+
+       <div id="fondo" >
+<div class="container ">   
+    <div class="card-group">
+
+    *ngIf="!isLoading"
+
+<div class="card text-center border-info" >
+    <div class="card-body row" *ngFor="let account of userAccounts" >
+
+      <h4 class="card-title">Id de cuenta:{{account.id}} wwqeqweqweqw </h4>
+      <p class="card-text">Monto de dinero de la cuenta:{{account.money}} adawdawdwawa </p>
+      <a href="#" class="btn btn-primary">Entrar</a>
+    </div>
+  </div>          
+
+        
+</div>
+</div>  
+
+</div>
+
+
+
+
+
+
+
+
+    <div id="fondo" >
+
+
+    <div class="">
+        <div class="container card shadow d-flex justify-content-center">
+
+            <div class="load m-4" *ngIf="isLoading">
+
+                <div class="spinner-border text-primary" role="status">
+                    <span class="sr-only">Loading...</span>
+                </div>
+            
+            </div>
+
+            <div class="contenedor mt-5" *ngIf="!isLoading">
+                <ul class="list-group" *ngFor="let account of userAccounts"    >
+                    <li class="list-group-item m-2">Id de cuenta:{{account.id}} Monto de dinero de la cuenta:{{account.money}} </li>
+                
+                  </ul>
+
+            </div>
+                 
+        </div>
+    </div>
+</div>
+
+  -->
