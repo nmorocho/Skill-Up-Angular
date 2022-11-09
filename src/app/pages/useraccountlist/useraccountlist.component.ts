@@ -41,14 +41,12 @@ export class UseraccountlistComponent implements OnInit {
             this.searchAccounts();
 
           } else {
-            
             this.userAccounts=this.userAccounts.filter((userAccount) => userAccount.userId === this.getallaccountsrv.idUser);
             console.log(this.userAccounts);
             this.isLoading = false;
-            
-
             this.spi.callhide();
           }
+        
         },
         error: (error: Error) => {
           console.log(error);

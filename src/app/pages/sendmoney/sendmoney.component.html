@@ -7,10 +7,10 @@
 <div id="fondo">
     <app-navbar></app-navbar>
 
-    <div class="m-4">
-    <div  class="container card shadow d-flex justify-content-center ">
+    <div  class="m-4">
+    <div    class="container card shadow d-flex justify-content-center ">
         <!-- nav options -->
-        <ul class="nav nav-pills mb-3 shadow-sm" id="pills-tab" role="tablist">
+        <ul  class="nav nav-pills mb-3 shadow-sm" id="pills-tab" role="tablist">
     
             <li class="nav-item">
                 <h4 class="nav-link manito" (click)="showSpinner()" (click)="getAllUsers()">Listar todos los usuarios</h4>
@@ -20,7 +20,7 @@
             </li>
 
   
-            <li class="nav-item">
+            <li  class="nav-item">
                 <form [formGroup]="searchUsersForm" class="row g-3">
                     <div class="col-auto"> 
                     </div>
@@ -37,11 +37,11 @@
         </ul>
     
         <!-- content -->
-        <div class="tab-content" id="pills-tabContent p-3">
+        <div  class="tab-content" id="pills-tabContent borde p-3">
             <!-- 1st card -->
             <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
             
-                <div class="scroll">
+                <div  class="scroll ">
 
                     <div class="" *ngFor="let user of userList" [ngClass]="{'d-none': !showSpinner}" >
                         <ul class="ccontent ">
