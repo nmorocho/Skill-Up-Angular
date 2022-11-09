@@ -24,16 +24,15 @@
 
           <div class="scroll" *ngIf="!isLoading">
 
-            <div class="" *ngFor="let account of userAccounts">
+            <div data-bs-toggle="modal" data-bs-target="#exampleModal" class="" *ngFor="let account of userAccounts">
               <ul class="ccontent ">
                 <li>
-                  <div class="wrapp">
+                  <div class="wrapp cuenta">
                     <!--
   (click)="getUser(user.id)"
  -->
-                    <div class="manito "> Id de cuenta: {{account.id }} </div>
-                    <p> <strong> creacion de la cuenta: </strong> {{account.creationDate| date:'dd/MM/YYYY'}} </p> 
-
+                    <div  class="manito"> Número de cuenta: </div> <h4>{{account.id }}</h4>
+                    <p > <strong> cuenta creada el: </strong> {{account.creationDate| date:'dd/MM/YYYY'}} </p> 
 
                   </div>
                 </li>
@@ -57,113 +56,25 @@
 
 </div>
 
-
-
-
-
-
-
-
-
-
-<!--
-<div id="fondo">
-
-  <app-navbar></app-navbar>
-
-<div class="container scroll">
-   
-    <div class="row m-5">
-        <div class="col-md-12">
-
-        <div class="card rounded-0" *ngIf="!isLoading">
-          <div class="row align-items-center">
-            <div id="fondito" class="col-md-8 mb-3 mb-sm-0 m-4 " *ngFor="let account of userAccounts" >
-              <h5>
-                <a  class="text-primary manito " > <strong>  Id de cuenta: </strong> {{account.id}}</a> <br>
-              </h5>
-
-                 <a class="text-black"> <strong> creacion de la cuenta: </strong> {{account.creationDate}}</a> <br>
-                 
-              <div class="text-sm op-5"> <a class="text-black mr-2" > <strong> creado a las </strong> : {{account.createdAt}} </a> <a class="text-black mr-2" >modificada en : {{account.updatedAt}}</a> </div>
-            </div>
-            
-          </div>
-        </div>
-       
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Envío de dinero</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <h5> N° de cuenta: </h5>
+        <input class="form-control form-control-sm" type="text" placeholder="ingresar importe" aria-label=".form-control-sm example">
+     
+      </div>
+      <div class="modal-footer">   
+        <button type="button" class="btn btn-primary">Realizar pago</button>
+      </div>
     </div>
-</div>
-</div>
-
-
+  </div>
 </div>
 
 
 
--->
-
-
-
-
-
-
-<!--
-
-
-
-
-       <div id="fondo" >
-<div class="container ">   
-    <div class="card-group">
-
-    *ngIf="!isLoading"
-
-<div class="card text-center border-info" >
-    <div class="card-body row" *ngFor="let account of userAccounts" >
-
-      <h4 class="card-title">Id de cuenta:{{account.id}} wwqeqweqweqw </h4>
-      <p class="card-text">Monto de dinero de la cuenta:{{account.money}} adawdawdwawa </p>
-      <a href="#" class="btn btn-primary">Entrar</a>
-    </div>
-  </div>          
-
-        
-</div>
-</div>  
-
-</div>
-
-
-
-
-
-
-
-
-    <div id="fondo" >
-
-
-    <div class="">
-        <div class="container card shadow d-flex justify-content-center">
-
-            <div class="load m-4" *ngIf="isLoading">
-
-                <div class="spinner-border text-primary" role="status">
-                    <span class="sr-only">Loading...</span>
-                </div>
-            
-            </div>
-
-            <div class="contenedor mt-5" *ngIf="!isLoading">
-                <ul class="list-group" *ngFor="let account of userAccounts"    >
-                    <li class="list-group-item m-2">Id de cuenta:{{account.id}} Monto de dinero de la cuenta:{{account.money}} </li>
-                
-                  </ul>
-
-            </div>
-                 
-        </div>
-    </div>
-</div>
-
-  -->

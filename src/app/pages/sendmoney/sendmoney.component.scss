@@ -8,9 +8,12 @@
     }
 }
 
+#borde{
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
 
 #fondo{
-   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://img.freepik.com/vector-gratis/fondo-blanco-gris-brillante-lineas-onduladas_1017-25101.jpg?w=2000');
+   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://fondosmil.com/fondo/31314.jpg');
     background-size: cover;
     background-position: center;
     background-repeat:repeat-y;
@@ -121,7 +124,7 @@ body {
  
   
   .ccontent li:hover {
-    background-color: rgb(117, 93, 255);
+    background-color: rgb(29, 27, 41);
     color: white;
   }
   
