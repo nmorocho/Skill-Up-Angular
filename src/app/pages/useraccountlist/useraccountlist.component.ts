@@ -1,7 +1,12 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Imonto } from 'src/app/core/interfaces/imonto';
 import { GetallaccountsService } from 'src/app/core/services/getallaccounts.service';
 import { SpinnerService } from 'src/app/core/services/spinner.service';
+import { TokenService } from 'src/app/core/services/token.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-useraccountlist',
@@ -9,10 +14,21 @@ import { SpinnerService } from 'src/app/core/services/spinner.service';
   styleUrls: ['./useraccountlist.component.scss']
 })
 export class UseraccountlistComponent implements OnInit {
+  
 
   constructor(private getallaccountsrv:GetallaccountsService,
+     private http: HttpClient,
     private router: Router,
-    private spi : SpinnerService) { }
+    private spi : SpinnerService,
+    private tokenservice : TokenService) { 
+
+      this.pago = new FormGroup({
+        amount: new FormControl('', [Validators.required]),
+        concept: new FormControl('', [ Validators.required]),
+      });
+    }
+  
+  pago : FormGroup;
   public isLoading: boolean = true;
   public userAccounts: any[] = [];
   private contador: number = 1;
@@ -61,12 +77,42 @@ export class UseraccountlistComponent implements OnInit {
   onSelect(account: any){
     this.selectedaccount = account;
   }
+
+imonto : Imonto;
+
   onSend(account: any){
-    this.getallaccountsrv.accountSelected= account;
-    console.log( this.getallaccountsrv.accountSelected);
-    // enviar dinero a la api
-    
-  }
+
+   this.getallaccountsrv.sendMoney (account.id) 
+console.log(account.id);
+
+   const customHeaders = new HttpHeaders({
+    Authorization: `Bearer ${this.tokenservice.getToken}`,
+  });
+
+  return this.http.post(
+    `${environment.API_URL}/accounts/${account.id}`,
+    {
+      "type": "topup" ,
+      "concept": "padosss",
+      "amount": 10000000
+    },
+    { headers: customHeaders }
+  ).subscribe(
+    (response: any) => {
+      console.log(response)
+  })
+
 }
+}
+
+
+/*
+{
+      "type": "topup",
+      "concept": "pagos",
+      "amount": 15000
+    }
+    */
+
 
 
