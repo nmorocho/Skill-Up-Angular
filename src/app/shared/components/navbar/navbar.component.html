@@ -1,101 +1,55 @@
 <nav class="navbar navbar-expand-lg bg-light">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">Alkemy Wallet</a>
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarNavDropdown"
-      aria-controls="navbarNavDropdown"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+      aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a
-            class="nav-link d-flex gap-1"
-            aria-current="page"
-            routerLink="/home"
-            role="button"
-            ><img src="../../../../assets/icons/House.svg" alt="" />Inicio</a
-          >
+          <a class="nav-link d-flex gap-1" aria-current="page" routerLink="/home" role="button"><img
+              src="../../../../assets/icons/House.svg" alt="" />Inicio</a>
         </li>
         <li class="nav-item dropdown">
-          <a
-            class="nav-link dropdown-toggle"
-            href="#"
-            role="button"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-          >
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             <img src="../../../../assets/icons/profile.svg" alt="" />
             Perfil
           </a>
           <ul class="dropdown-menu">
             <li>
-              <a
-                class="dropdown-item"
-
-                [routerLink]="['/my-profile']"
-                routerLinkActive="router-link-active"
-                role="button"
-                >Ver perfil</a
-              >
+              <a class="dropdown-item" [routerLink]="['/my-profile']" routerLinkActive="router-link-active"
+                role="button">Ver perfil</a>
             </li>
             <li>
-              <a class="dropdown-item" (click)="logout()" role="button"
-                >Cerrar sesión</a
-              >
+              <a class="dropdown-item" (click)="logout()" role="button">Cerrar sesión</a>
             </li>
           </ul>
         </li>
         <li class="nav-item dropdown">
-          <a
-            class="nav-link dropdown-toggle"
-            href="#"
-            role="button"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-          >
-            <img
-              src="../../../../assets/icons/bar graph.svg"
-              alt=""
-              style="height: 20px"
-            />
+          <a class="nav-link dropdown-toggle"  role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="../../../../assets/icons/bar graph.svg" alt="" style="height: 20px" />
             Actividad
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Ingresos</a></li>
-            <li><a class="dropdown-item" href="#">Egresos</a></li>
+            <li><a class="dropdown-item" >Ingresos</a></li>
+            <li><a class="dropdown-item" >Egresos</a></li>
           </ul>
         </li>
         <li class="nav-item">
-          <a class="nav-link d-flex gap-1 align-items-end" href="#"
-            ><img
-              src="../../../../assets/icons/increase money.svg"
-              alt=""
-            />Enviar dinero</a
-          >
+          <a class="nav-link d-flex gap-1 align-items-end" ><img
+              src="../../../../assets/icons/increase money.svg" alt="" [routerLink]="['/usuarios-list']" />Enviar dinero</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link d-flex gap-1" href="#"
-            ><img src="../../../../assets/icons/show chart.svg" alt="" />Plazos
-            fijos</a
-          >
+          <a class="nav-link d-flex gap-1"><img src="../../../../assets/icons/show chart.svg" alt="" />Plazos
+            fijos</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link d-flex gap-1" href="#"
-            ><img src="../../../../assets/icons/chat.svg" alt="" />Contactos</a
-          >
+          <a class="nav-link d-flex gap-1"><img src="../../../../assets/icons/chat.svg" alt="" />Contactos</a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link d-flex gap-1" href="#"
-            ><img src="../../../../assets/icons/cash.svg" alt="" />Billeteras</a
-          >
+          <a class="nav-link d-flex gap-1"><img src="../../../../assets/icons/cash.svg" alt="" />Billeteras</a>
         </li>
       </ul>
     </div>

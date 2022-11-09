@@ -10,6 +10,8 @@ export class DivisasComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+
+    console.log('estoy en el componente de divisas')
   }
 
 }

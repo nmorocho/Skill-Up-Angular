@@ -22,6 +22,8 @@ import { DivisasComponent } from './pages/divisas/divisas.component';
 import { PlazoFijoComponent } from './pages/inversiones/plazo-fijo/plazo-fijo.component';
 import { PlazoFijoProyeccionComponent } from './pages/inversiones/plazo-fijo-proyeccion/plazo-fijo-proyeccion.component';
 import { NumbersDirective } from './directives/numbers.directive';
+import { SendmoneyComponent } from './pages/sendmoney/sendmoney.component';
+import { UseraccountlistComponent } from './pages/useraccountlist/useraccountlist.component';
 
 
 @NgModule({
@@ -36,7 +38,9 @@ import { NumbersDirective } from './directives/numbers.directive';
     DivisasComponent,
     PlazoFijoComponent,
     PlazoFijoProyeccionComponent,
-    NumbersDirective],
+    NumbersDirective,
+    SendmoneyComponent,
+    UseraccountlistComponent],
   imports: [
     NgxSpinnerModule,
     BrowserModule,
