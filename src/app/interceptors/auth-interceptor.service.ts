@@ -18,7 +18,7 @@ export class AuthInterceptorService implements HttpInterceptor {
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
-    this.spi.callshow();
+  //  this.spi.callshow();
     let request = req;
 
 
@@ -40,10 +40,14 @@ export class AuthInterceptorService implements HttpInterceptor {
           Swal.fire('No tiene permisos para acceso')      
         }else if( err.status === 500){        
           Swal.fire('Error en el servidor') 
+        } else {
+          this.spi.callhide();
         }
         return throwError( err );
 
       })
+      
     );
+    
   }
 }
