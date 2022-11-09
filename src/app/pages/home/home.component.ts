@@ -76,6 +76,7 @@ export class HomeComponent implements OnInit {
 
   viewContact(user: AccountUser) {
   this.accountUser = user;
+  const userId = user.userId;
   console.log(this.accountUser);
   this.hide = true;
   }

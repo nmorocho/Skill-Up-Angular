@@ -3,6 +3,7 @@ import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent, HttpErrorResponse
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { SpinnerService } from '../core/services/spinner.service';
+import Swal from 'sweetalert2';
 
 
 
@@ -17,7 +18,7 @@ export class AuthInterceptorService implements HttpInterceptor {
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
-    this.spi.callshow();
+  //  this.spi.callshow();
     let request = req;
 
 
@@ -26,17 +27,27 @@ export class AuthInterceptorService implements HttpInterceptor {
       
       catchError((err: HttpErrorResponse) => {
         this.spi.callhide();
-        if (err.status === 401) {       
-        alert('Usuario o contraseña incorrectos')    
+        if (err.status === 401) {          
+
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Usuario o contraseña incorrectos!',
+          footer: '<a href="/password-reset">No recuerdas tu contraseña? </a>'
+        })
         }
         else if (err.status === 403) {       
-          alert('No tiene permisos para acceso')      
+          Swal.fire('No tiene permisos para acceso')      
         }else if( err.status === 500){        
-          alert('Error en el servidor') 
+          Swal.fire('Error en el servidor') 
+        } else {
+          this.spi.callhide();
         }
         return throwError( err );
 
       })
+      
     );
+    
   }
 }

@@ -1,1 +1,55 @@
-<p>transaction-list works!</p>
+<div class="my-5 table-container">
+  <div class="shadow-4 rounded-2 overflow-hidden" *ngIf="data">
+    <table class="table align-middle mb-0 bg-white">
+      <thead class="bg-light">
+        <tr>
+          <th>Fecha</th>
+          <!-- <th>Nombre</th> -->
+          <th>tipo</th>
+          <th>Descripcion</th>
+          <th>Monto</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let info of data.data">
+          <td>
+            <p class="text-muted mb-0">{{info.date}}</p>
+          </td>
+          <!-- <td>
+            <div class="d-flex align-items-center">
+              <div class="ms-3">
+                <p class="fw-bold mb-1">{{info.userId}}</p>
+                <p class="text-muted mb-0">{{info.accountId}}</p>
+              </div>
+            </div>
+          </td> -->
+          <td>{{info.type}}</td>
+          <td>
+            <span>{{info.concept}}</span>
+          </td>
+          <td>+{{info.amount}}</td>
+
+        </tr>
+      </tbody>
+    </table>
+    <div class="table-footer">
+      <div class="">
+        <!-- Showing 1 to 10 of 57 entries -->
+      </div>
+      <div class="">
+        <ul class="pagination">
+          <li [ngClass]="{'paginate_button page-item previous ': true, 'disabled': !data.previousPage}">
+            <a (click)="changePage(data.previousPage)" aria-controls="example" data-dt-idx="0" tabindex="0" class="page-link pointer">Previous</a>
+          </li>
+          <!-- <li class="paginate_button page-item active"><a href="#" aria-controls="example" data-dt-idx="1" tabindex="0"
+              class="page-link">1</a></li> -->
+          <!-- class="paginate_button page-item next disabled" -->
+          <li [ngClass]="{'paginate_button page-item next': true, 'disabled': !data.nextPage}">
+            <a (click)="changePage(data.nextPage)" aria-controls="example" data-dt-idx="2" tabindex="0" class="page-link pointer">Next</a>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+  </div>
+</div>

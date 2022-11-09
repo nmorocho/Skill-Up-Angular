@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/core/services/auth.service';
+import { SpinnerService } from 'src/app/core/services/spinner.service';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +11,8 @@ import { AuthService } from 'src/app/core/services/auth.service';
 export class LoginComponent implements OnInit {
   public loginForm: FormGroup = new FormGroup({});
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService,
+    private spi : SpinnerService) {}
 
   ngOnInit(): void {
     this.initializeForm();
@@ -28,6 +30,8 @@ export class LoginComponent implements OnInit {
 
   onLogin() {
     this.authService.login(this.loginForm.value).subscribe();
+    this.spi.callshow();
+    
   }
 
   controlIsValid(control: string): boolean {
