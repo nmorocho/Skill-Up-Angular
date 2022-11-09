@@ -55,6 +55,18 @@ export class UseraccountlistComponent implements OnInit {
       }
     )
   } 
+
+  selectedaccount: any;
+ 
+  onSelect(account: any){
+    this.selectedaccount = account;
+  }
+  onSend(account: any){
+    this.getallaccountsrv.accountSelected= account;
+    console.log( this.getallaccountsrv.accountSelected);
+    // enviar dinero a la api
+    
+  }
 }
 
 
