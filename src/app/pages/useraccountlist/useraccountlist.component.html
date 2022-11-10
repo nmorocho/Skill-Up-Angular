@@ -72,7 +72,7 @@
 
         <div  class="modal-body" *ngIf="selectedaccount">
           <h5> N° de cuenta:{{selectedaccount.id}} </h5>
-          <input class="form-control form-control-sm m-2" formControlName="amount" type="text" placeholder="ingresar importe"
+          <input class="form-control form-control-sm m-2" formControlName="amount" type="text" numbers placeholder="ingresar importe"
             aria-label=".form-control-sm example">
             <input class="form-control form-control-sm m-2" formControlName="concept"  type="text" placeholder="concepto de pago"
             aria-label=".form-control-sm example">
@@ -85,7 +85,7 @@
       </form>
 
       <div class="modal-footer">
-        <button type="submit" (click)="onSend(selectedaccount)" class="btn btn-primary">Realizar pago</button>
+        <button (click)="onSend(selectedaccount)" class="btn btn-primary">Realizar pago</button>
       </div>
     </div>
   </div>

@@ -35,6 +35,8 @@ export class AuthInterceptorService implements HttpInterceptor {
           text: 'Usuario o contraseña incorrectos!',
           footer: '<a href="/password-reset">No recuerdas tu contraseña? </a>'
         })
+        }else if (err.status === 400) {       
+          Swal.fire('posiblemente no tengas saldo, o el tipo de deposito no sea el correcto')      
         }
         else if (err.status === 403) {       
           Swal.fire('No tiene permisos para acceso')      
