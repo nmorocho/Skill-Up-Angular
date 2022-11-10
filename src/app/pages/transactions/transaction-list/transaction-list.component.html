@@ -1,51 +1,53 @@
 <div class="my-5 table-container">
-  <div class="shadow-4 rounded-2 overflow-hidden" *ngIf="data">
-    <table class="table align-middle mb-0 bg-white">
+  <div class="shadow-4 rounded-2 overflow-hidden">
+    <table class="table align-middle mb-0 bg-white" *ngIf="infoTransactions">
       <thead class="bg-light">
         <tr>
-          <th>Fecha</th>
+          <th>Date</th>
           <!-- <th>Nombre</th> -->
-          <th>tipo</th>
-          <th>Descripcion</th>
-          <th>Monto</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Ammount</th>
+          <th>Actions</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let info of data.data">
+        <tr *ngFor="let info of this.infoTransactions.data">
           <td>
-            <p class="text-muted mb-0">{{info.date}}</p>
+            <p class="text-muted mb-0">{{this.modifyDate(info.date)}}</p>
           </td>
-          <!-- <td>
-            <div class="d-flex align-items-center">
-              <div class="ms-3">
-                <p class="fw-bold mb-1">{{info.userId}}</p>
-                <p class="text-muted mb-0">{{info.accountId}}</p>
-              </div>
-            </div>
-          </td> -->
           <td>{{info.type}}</td>
           <td>
-            <span>{{info.concept}}</span>
+            <span *ngIf="editItemId!==info.id;else editConcept">{{info.concept}}</span>
+            <ng-template #editConcept>
+              <input type="text" [value]="info.concept" #newConcept>
+            </ng-template>
           </td>
-          <td>+{{info.amount}}</td>
-
+          <td>{{info.amount}}</td>
+          <td>
+            <button *ngIf="this.editItemId!==info.id;else buttonEdit" (click)="setEditItemId(info.id)" type="button"
+              class="action btn btn-primary">Edit</button>
+            <ng-template #buttonEdit>
+                <button #confirmbutton (click)="confirmEdit(confirmbutton,info)" type="button" class="action btn btn-secondary">Confirm</button>
+                <button (click)="setEditItemId('')" type="button" class="action btn btn-danger">Cancel</button>
+            </ng-template>
+            <button *ngIf="this.editItemId !==info.id" (click)="deletetransaction(info.id)" type="button" class="action btn btn-danger">Delete</button>
+          </td>
         </tr>
       </tbody>
     </table>
     <div class="table-footer">
       <div class="">
-        <!-- Showing 1 to 10 of 57 entries -->
       </div>
       <div class="">
-        <ul class="pagination">
-          <li [ngClass]="{'paginate_button page-item previous ': true, 'disabled': !data.previousPage}">
-            <a (click)="changePage(data.previousPage)" aria-controls="example" data-dt-idx="0" tabindex="0" class="page-link pointer">Previous</a>
+        <ul class="pagination" *ngIf="this.infoTransactions">
+          <li [ngClass]="{'paginate_button page-item previous ': true, 'disabled': !infoTransactions.previousPage}">
+            <a (click)="changePage(infoTransactions.previousPage)" aria-controls="example" data-dt-idx="0" tabindex="0"
+              class="page-link pointer">Previous</a>
           </li>
-          <!-- <li class="paginate_button page-item active"><a href="#" aria-controls="example" data-dt-idx="1" tabindex="0"
-              class="page-link">1</a></li> -->
-          <!-- class="paginate_button page-item next disabled" -->
-          <li [ngClass]="{'paginate_button page-item next': true, 'disabled': !data.nextPage}">
-            <a (click)="changePage(data.nextPage)" aria-controls="example" data-dt-idx="2" tabindex="0" class="page-link pointer">Next</a>
+          <li [ngClass]="{'paginate_button page-item next': true, 'disabled': !infoTransactions.nextPage}">
+            <a (click)="changePage(infoTransactions.nextPage)" aria-controls="example" data-dt-idx="2" tabindex="0"
+              class="page-link pointer">Next</a>
           </li>
         </ul>
 
@@ -53,3 +55,4 @@
     </div>
   </div>
 </div>
+

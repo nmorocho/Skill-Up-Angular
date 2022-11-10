@@ -1,35 +1,46 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { UserDetails } from '../interfaces/UserDetails.interface';
-import { SpinnerService } from './spinner.service';
-import { TokenService } from './token.service';
+import { Transaction, Transactions } from '../interfaces/Transaction.interface';
 
 @Injectable({
   providedIn: 'root'
 })
 export class OperationsService {
 
-  constructor( private http: HttpClient,
-    private tokenService: TokenService,
-    private router: Router,
-    private spinnerService: SpinnerService) { }
+  public infoTransactions: Transactions
+  constructor(private http: HttpClient) {
+    this.viewProfileTransaction().subscribe(data => {
+      console.log(data);
+    })
+  }
 
 
-  token = this.tokenService.getToken();
-  customHeaders = new HttpHeaders({
-    Authorization: `Bearer ${this.token}`,
-  });
-
-
-
-  
-
-  viewProfileTransaction(): Observable<UserDetails> {
-    return this.http.get<UserDetails>(`${environment.API_URL}/transactions`, {
-      headers: this.customHeaders,
-    });
+  viewProfileTransaction(page: string = "/transactions/?page=1"): Observable<Transactions> {
+    return this.http.get<Transactions>(`${environment.API_URL}${page}`)
+      .pipe(
+        tap(resp => {
+          this.infoTransactions = resp
+        })
+      );
+  }
+  deleteTransaction(id: string) {
+    return this.http.delete<Transaction>(`${environment.API_URL}/transactions/${id}`)
+      .pipe(tap((data) => {
+        if (typeof data.accountId !== 'undefined') {
+          this.infoTransactions.data = this.infoTransactions
+            .data.filter(transaction => transaction.id !== id)
+        }
+      }))
+  }
+  editTransaction(id: string, newBody: Transaction) {
+    return this.http.put<Transaction>(`${environment.API_URL}/transactions/${id}`, newBody)
+      .pipe(tap((data) => {
+        if (typeof data.accountId !== 'undefined') {
+          this.infoTransactions.data = this.infoTransactions
+            .data.map(transaction => transaction.id === id ? { ...transaction, concept: newBody.concept } : transaction)
+        }
+      }))
   }
 }
