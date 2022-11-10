@@ -6,6 +6,7 @@ import { GetallaccountsService } from 'src/app/core/services/getallaccounts.serv
 import { SpinnerService } from 'src/app/core/services/spinner.service';
 import { TokenService } from 'src/app/core/services/token.service';
 import { environment } from 'src/environments/environment';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-useraccountlist',
@@ -82,7 +83,7 @@ export class UseraccountlistComponent implements OnInit {
 
    this.getallaccountsrv.sendMoney (account.id) 
 console.log(account.id);
-
+this.spi.callshow()
    const customHeaders = new HttpHeaders({
     Authorization: `Bearer ${this.tokenservice.getToken}`,
   });
@@ -97,8 +98,13 @@ console.log(account.id);
     { headers: customHeaders,
       observe: 'response' }).subscribe(
         (response) => {
-          console.log(response);
-        
+          
+          if(response.status===200){
+            Swal.fire('Pago realizado con exito')
+          }
+          console.log(response.status);
+            
+        this.spi.callhide();
      })
 
 
