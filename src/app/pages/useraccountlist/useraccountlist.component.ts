@@ -25,6 +25,7 @@ export class UseraccountlistComponent implements OnInit {
       this.pago = new FormGroup({
         amount: new FormControl('', [Validators.required]),
         concept: new FormControl('', [ Validators.required]),
+        type: new FormControl('', [ Validators.required]),
       });
     }
   
@@ -78,8 +79,6 @@ export class UseraccountlistComponent implements OnInit {
     this.selectedaccount = account;
   }
 
-imonto : Imonto;
-
   onSend(account: any){
 
    this.getallaccountsrv.sendMoney (account.id) 
@@ -92,9 +91,9 @@ console.log(account.id);
   return this.http.post(
     `${environment.API_URL}/accounts/${account.id}`,
     {
-      "type": "topup" ,
-      "concept": "padosss",
-      "amount": 10000000
+      "type": this.pago.value.type,
+      "concept": this.pago.value.concept,
+      "amount": this.pago.value.amount
     },
     { headers: customHeaders }
   ).subscribe(

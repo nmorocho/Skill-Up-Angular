@@ -43,9 +43,8 @@
                     <div class="row m-4">
                       <div class="col-md-12 m-3 ">
                         <div class="card shadow pass-2 ">
-                      
+
                           <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-outline-success m-2">Pago</button>
-                          <button type="button" class="btn btn-outline-success  m-2">Transferencia</button>
                         </div>  
                       </div>
                     </div>
@@ -73,11 +72,15 @@
 
         <div  class="modal-body" *ngIf="selectedaccount">
           <h5> N° de cuenta:{{selectedaccount.id}} </h5>
-          <input class="form-control form-control-sm" formControlName="amount" type="text" placeholder="ingresar importe"
+          <input class="form-control form-control-sm m-2" formControlName="amount" type="text" placeholder="ingresar importe"
             aria-label=".form-control-sm example">
-            <input class="form-control form-control-sm" formControlName="concept"  type="text" placeholder="concepto de pago"
+            <input class="form-control form-control-sm m-2" formControlName="concept"  type="text" placeholder="concepto de pago"
+            aria-label=".form-control-sm example">
+            <input class="form-control form-control-sm m-2" formControlName="type"  type="text" placeholder="tipo de pago"
             aria-label=".form-control-sm example">
         </div>
+     
+     
 
       </form>
 
