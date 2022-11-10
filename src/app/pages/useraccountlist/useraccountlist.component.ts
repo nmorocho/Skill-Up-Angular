@@ -2,7 +2,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Imonto } from 'src/app/core/interfaces/imonto';
 import { GetallaccountsService } from 'src/app/core/services/getallaccounts.service';
 import { SpinnerService } from 'src/app/core/services/spinner.service';
 import { TokenService } from 'src/app/core/services/token.service';
@@ -22,11 +21,7 @@ export class UseraccountlistComponent implements OnInit {
     private spi : SpinnerService,
     private tokenservice : TokenService) { 
 
-      this.pago = new FormGroup({
-        amount: new FormControl('', [Validators.required]),
-        concept: new FormControl('', [ Validators.required]),
-        type: new FormControl('', [ Validators.required]),
-      });
+   
     }
   
   pago : FormGroup;
@@ -36,8 +31,12 @@ export class UseraccountlistComponent implements OnInit {
 
   ngOnInit(): void {
     this.searchAccounts();
-    console.log('estoy en el componente par enviar el dinero')
-    
+ 
+    this.pago = new FormGroup({
+      amount: new FormControl(),
+      concept: new FormControl('', [ Validators.required]),
+      type: new FormControl('', [ Validators.required]),
+    });
   }
 
   ngOnDestroy(){
@@ -95,11 +94,13 @@ console.log(account.id);
       "concept": this.pago.value.concept,
       "amount": this.pago.value.amount
     },
-    { headers: customHeaders }
-  ).subscribe(
-    (response: any) => {
-      console.log(response)
-  })
+    { headers: customHeaders,
+      observe: 'response' }).subscribe(
+        (response) => {
+          console.log(response);
+        
+     })
+
 
 }
 }

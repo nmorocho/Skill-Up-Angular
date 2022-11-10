@@ -46,9 +46,9 @@
                     <div class="" *ngFor="let user of userList" [ngClass]="{'d-none': !showSpinner}" >
                         <ul class="ccontent ">
                             <li>
-                                <div class="wrapp" >
+                                <div class="wrapp"  (click)="getUser(user.id)" >
  
-                                    <div (click)="getUser(user.id)" class="manito" > <strong> {{user.first_name + ' ' + user.last_name}} </strong>   </div>
+                                    <div class="manito" > <strong> {{user.first_name + ' ' + user.last_name}} </strong>   </div>
                                     <p >{{user.email }} <strong> / ide de usuairo: </strong> {{user.id}} </p>
                                   
                                 </div>
