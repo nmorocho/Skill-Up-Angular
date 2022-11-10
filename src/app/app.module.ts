@@ -26,6 +26,7 @@ import { SendmoneyComponent } from './pages/sendmoney/sendmoney.component';
 import { UseraccountlistComponent } from './pages/useraccountlist/useraccountlist.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,7 +41,8 @@ import { UseraccountlistComponent } from './pages/useraccountlist/useraccountlis
     PlazoFijoProyeccionComponent,
     NumbersDirective,
     SendmoneyComponent,
-    UseraccountlistComponent],
+    UseraccountlistComponent,
+   ],
   imports: [
     NgxSpinnerModule,
     BrowserModule,
