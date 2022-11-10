@@ -29,6 +29,9 @@ export class TransactionListComponent implements OnInit {
       this.data = info
     })
   }
+  modifiDate(date:string){
+    return date.substring(0,10)
+  }
 
 }
 
