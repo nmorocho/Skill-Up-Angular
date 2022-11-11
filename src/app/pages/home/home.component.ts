@@ -43,7 +43,8 @@ export class HomeComponent implements OnInit {
           }
         });
 
-        this.tenAccountUsersResult = result;
+        this.tenAccountUsersResult.push(result)
+        // this.tenAccountUsersResult = result;
 
         console.log('Listar todos los usuarios allTheUsers', this.tenAccountUsersResult);
       })
@@ -56,6 +57,7 @@ export class HomeComponent implements OnInit {
     return this.http.get(
       `${environment.API_URL}/accounts/?page=${this.pageNumber}`)
       .subscribe((res) => {
+        console.log(Object.values(res))
         const result = Object.values(res).flat(1).splice(2).flat().map(item => {
           return {
             id: item.id,
@@ -68,7 +70,9 @@ export class HomeComponent implements OnInit {
           }
         });
 
-        this.tenAccountUsersResult = result;
+        this.tenAccountUsersResult = this.tenAccountUsersResult.concat(result)
+
+        // this.tenAccountUsersResult = result;
 
         console.log('Listar todos los usuarios allTheUsers', this.tenAccountUsersResult);
       })
@@ -83,6 +87,25 @@ export class HomeComponent implements OnInit {
 
   close() {
     this.hide = false;
+  }
+
+  // Listar todas las cuentas
+
+  listAllAccounts() {
+    this.pageNumber = 0;
+    while(this.pageNumber < 40)
+    this.nextPage();
+  }
+
+  inputUserId: number = 0;
+  userId: number[];
+
+  filterAccountByUserId() {
+
+    console.log(this.inputUserId)
+    this.userId = this.tenAccountUsersResult.filter(item => item.userId === this.inputUserId);
+    console.log(this.userId)
+    return this.userId;
   }
 
 }

@@ -26,3 +26,9 @@ export interface AccountUser  {
   createdAt: Date;
   updatedAt: Date;
 }
+
+export interface ResponseFixedDeposits {
+  previousPage: null,
+  nextPage: null,
+  data: FixedDepositCreated[]
+}

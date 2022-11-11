@@ -24,6 +24,9 @@ import { PlazoFijoProyeccionComponent } from './pages/inversiones/plazo-fijo-pro
 import { NumbersDirective } from './directives/numbers.directive';
 import { SendmoneyComponent } from './pages/sendmoney/sendmoney.component';
 import { UseraccountlistComponent } from './pages/useraccountlist/useraccountlist.component';
+import { BalanceInfoComponent } from './pages/balances/balance-info/balance-info.component';
+import { MovimientoListComponent } from './pages/movimientos/movimiento-list/movimiento-list.component';
+import { AccountsComponent } from './pages/accounts/accounts.component';
 
 
 @NgModule({
@@ -40,7 +43,10 @@ import { UseraccountlistComponent } from './pages/useraccountlist/useraccountlis
     PlazoFijoProyeccionComponent,
     NumbersDirective,
     SendmoneyComponent,
-    UseraccountlistComponent],
+    UseraccountlistComponent,
+    BalanceInfoComponent,
+    MovimientoListComponent,
+    AccountsComponent],
   imports: [
     NgxSpinnerModule,
     BrowserModule,

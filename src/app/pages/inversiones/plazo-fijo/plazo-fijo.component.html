@@ -1,14 +1,127 @@
-<p>plazo-fijo works!</p>
+<app-navbar></app-navbar>
+<br><br>
+<!-- Template para el plazo fijo -->
 
-<div style="padding: 20px">
-  <p><label>userId</label><input type="number" [(ngModel)]="data.userId"></p>
-  <p><label>accountId</label><input type="number" [(ngModel)]="data.accountId"></p>
-  <p><label>amount</label><input type="number" [(ngModel)]="data.amount"></p>
-  <p><label>creation_date</label><input type="date" [(ngModel)]="data.creation_date"></p>
-  <p><label>closing_date</label><input type="date" [(ngModel)]="data.closing_date"></p>
-  <button (click)="createFixedDeposit(data)">Crear plazo fijo</button>
+<div class="container">
+  <div class="row gutters">
+  <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
+  <div class="card h-100">
+    <div class="card-body">
+      <form [formGroup]="plazosFijosForm" (ngSubmit)="createFixedDeposit()">
+      <div class="row gutters">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+          <h5 class="mb-2 text-primary">Nuevo Plazo fijo</h5>
+        </div>
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+          <div class="form-group">
+            <label for="fullName">Identificación de usuario</label>
+            <input type="number" class="form-control" placeholder="userId" formControlName="userId"
+            >
+          </div>
+        </div>
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+          <div class="form-group">
+            <label for="fullName">Número de cuenta</label>
+            <input type="number" class="form-control" placeholder="accountId" formControlName="accountId">
+          </div>
+        </div>
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+          <div class="form-group">
+            <label for="fullName">Ingresar monto</label>
+            <input type="number" class="form-control" placeholder="amount" formControlName="amount">
+          </div>
+        </div>
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+          <div class="form-group">
+            <label for="fullName">Fecha de constitución del plazo fijo</label>
+            <input type="date" class="form-control" placeholder="creation_date" formControlName="creation_date">
+          </div>
+        </div>
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+          <div class="form-group">
+            <label for="fullName">Fecha de finalización del plazo fijo</label>
+            <input type="date" class="form-control" placeholder="closing_date" formControlName="closing_date">
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="row gutters">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+          <div class="text-right">
+            <button type="submit" id="submit" name="submit" class="btn btn-primary">Constituir plazo fijo</button>
+          </div>
+        </div>
+      </div>
+      <br><br>
+      </form>
+    </div>
+  </div>
+  </div>
+  </div>
+  </div>
+
+<!-- Listar depósitos desde el ngOnInit-->
+
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+
+<div class="container">
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title text-uppercase mb-0">Plazos fijos activos</h5>
+            </div>
+            <div class="table-responsive">
+              <table class="table no-wrap user-table mb-0">
+                        <thead >
+                          <tr>
+                            <th scope="col" class="border-0 text-uppercase font-medium pl-4">id</th>
+                            <th scope="col" class="border-0 text-uppercase font-medium pl-4">cuenta</th>
+                            <th scope="col" class="border-0 text-uppercase font-medium">Monto</th>
+                            <th scope="col" class="border-0 text-uppercase font-medium">Constituido</th>
+                            <th scope="col" class="border-0 text-uppercase font-medium">Finaliza</th>
+                          </tr>
+                        </thead>
+                        <tbody *ngFor="let item of plazosFijos">
+                            <tr>
+                              <td class="pl-4">{{ item.id }}</td>
+                              <td class="pl-4">{{ item.accountId }}</td>
+
+                              <td>
+                                  <span class="text-muted">{{ item.amount }}</span><br>
+                              </td>
+                              <td>
+                                  <span class="text-muted">{{ item.createdAt }}</span><br>
+                              </td>
+                              <td>
+                                  <span class="text-muted">{{ item.updatedAt }}</span><br>
+                              </td>
+                              <td>
+                                <button type="button" class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2"><i class="fa fa-edit"></i> </button>
+                                <button type="button" class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2" (click)="deleteFixedDeposit(item.id)"><i class="fa fa-trash"></i> </button>
+                              </td>
+                            </tr>
+                            <td>
+                            </td>
+                          </tbody>
+                          <span class="text-muted">Total {{ total }}</span><br>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
 </div>
 
-<div>
-  <pre><h4>{{ data | json }}</h4></pre>
+
+
+
+
+
+
+
+
+
+
+<div id="container">
+
 </div>
