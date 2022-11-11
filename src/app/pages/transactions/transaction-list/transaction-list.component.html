@@ -1,8 +1,8 @@
-<div class="my-5 table-container">
-  <div class="shadow-4 rounded-2 overflow-hidden">
-    <table class="table align-middle mb-0 bg-white" *ngIf="infoTransactions">
-      <thead class="bg-light">
-        <tr>
+<div class="my-5 table-container ">
+  <div class="shadow-4 rounded-2 overflow-hidden  ">
+    <table class="table align-middle mb-0 bg-white " *ngIf="infoTransactions">
+      <thead class="bg-light ">
+        <tr class="">
           <th>Date</th>
           <!-- <th>Nombre</th> -->
           <th>Type</th>
@@ -11,7 +11,7 @@
           <th>Actions</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody >
         <tr *ngFor="let info of this.infoTransactions.data">
           <td>
             <p class="text-muted mb-0">{{this.modifyDate(info.date)}}</p>
@@ -43,11 +43,11 @@
         <ul class="pagination" *ngIf="this.infoTransactions">
           <li [ngClass]="{'paginate_button page-item previous ': true, 'disabled': !infoTransactions.previousPage}">
             <a (click)="changePage(infoTransactions.previousPage)" aria-controls="example" data-dt-idx="0" tabindex="0"
-              class="page-link pointer">Previous</a>
+              class="page-link pointer" style="cursor:pointer">Previous</a>
           </li>
           <li [ngClass]="{'paginate_button page-item next': true, 'disabled': !infoTransactions.nextPage}">
             <a (click)="changePage(infoTransactions.nextPage)" aria-controls="example" data-dt-idx="2" tabindex="0"
-              class="page-link pointer">Next</a>
+              class="page-link pointer" style="cursor:pointer">Next</a>
           </li>
         </ul>
 

@@ -1,29 +1,21 @@
-<div class="container">
-    <div class="accordion mb-5" id="accordionPanelsStayOpenExample">
-        <div class="accordion-item">
-            <h2 class="accordion-header" id="panelsStayOpen-headingOne">
-                <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
-                    aria-controls="panelsStayOpen-collapseOne">
-                    Lista de cuentas:
-                </button>
-            </h2>
-            <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
-                aria-labelledby="panelsStayOpen-headingOne">
-                <div class="accordion-body">
-                    <div class="loader__container" *ngIf="isLoading">
-                        <div class="loader">
-                        </div>
-                    </div>
-                    <ul class="list-group"*ngIf="accountListLoad">
-                        <li class="list-group-item" 
-                        *ngFor="let account of accountList" 
-                        (click)="setAccount(account)"
-                        [ngStyle]="{background:account.isSelected?'salmon':'inherit'}"
-                        >Nº: {{account.id}} | Monto: {{account.money}} </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+<div  class="" > 
+    <div class="loader__container" *ngIf="isLoading">
+      <div class="loader">
+      </div>
     </div>
-</div>
+
+
+    <div class="btn-group " *ngIf="accountListLoad" >
+      <h6 class="dropdown-toggle m-1" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+       Mis cuentas 
+      </h6>
+      <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end" aria-labelledby="dropdownMenuButton2" >
+        <li  *ngFor="let account of accountList">
+          <a class="dropdown-item manito" (click)="setAccount(account)" > Nº: {{account.id}} | Monto: $ {{account.money}}</a>
+      </li>
+      </ul>
+    </div>
+
+    
+   
+  </div>
