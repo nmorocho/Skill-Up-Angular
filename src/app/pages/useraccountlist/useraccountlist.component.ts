@@ -59,7 +59,6 @@ export class UseraccountlistComponent implements OnInit {
 
           } else {
             this.userAccounts=this.userAccounts.filter((userAccount) => userAccount.userId === this.getallaccountsrv.idUser);
-            console.log(this.userAccounts);
             this.isLoading = false;
             this.spi.callhide();
           }

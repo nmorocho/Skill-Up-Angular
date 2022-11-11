@@ -84,9 +84,6 @@ export class SendmoneyComponent implements OnInit {
   }
   getAllUsers() {
     
-
-
-   
     this.searchUsersForm.reset();
     this.userlistservice.getTenUsers(this.contador).subscribe(
       {
@@ -97,11 +94,8 @@ export class SendmoneyComponent implements OnInit {
             this.getAllUsers();
             this.searchUsersForm.reset();
             console.log(this.userList);
-          
-
-          } else {
-          
-            
+           } else {
+                 
             console.log(this.userList);
             this.spin.callhide();
           }

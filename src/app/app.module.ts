@@ -29,6 +29,7 @@ import { MovimientoListComponent } from './pages/movimientos/movimiento-list/mov
 import { AccountsComponent } from './pages/accounts/accounts.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,

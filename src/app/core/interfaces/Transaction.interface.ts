@@ -6,6 +6,7 @@ export interface Transactions {
 }
 
 export interface Transaction {
+    id?:string
     amount: number,
     concept: string,
     date: string,
