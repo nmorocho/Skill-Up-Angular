@@ -9,23 +9,42 @@ export class HandleLocalStorageService {
 
   usuarioData = new BehaviorSubject<any>(null);
 
-  constructor() { }
+  constructor() {
+
+  }
 
   setItem(key: string, value: any) {
-    localStorage.setItem(key, JSON.stringify(value));
+    try {
+      localStorage.setItem(key, JSON.stringify(value));
+    } catch (error) {
+      console.log('Error localstorage', error);
+    }
   }
 
   getItem(key: string) {
-    return JSON.parse(localStorage && localStorage.getItem(key));
+    try {
+      return JSON.parse(localStorage && localStorage.getItem(key));
+    } catch (error) {
+      console.log('Error localstorage', error);
+    }
   }
 
   removeItem(key: string) {
-    localStorage.removeItem(key);
+    try {
+      localStorage.removeItem(key);
+    } catch (error) {
+      console.log('Failed to remove local storage', error);
+    }
   }
 
 
   setUserAccount(value: string) {
+    try {
     localStorage.setItem('userAccount', value);
+  } catch (error) {
+    console.log('Failed to set local storage', error);
+  }
+
   }
 
   getUserAccount() {
@@ -42,32 +61,32 @@ export class HandleLocalStorageService {
 
 
   //solo borra datos del usuario y la cuenta referenciada
-  cleardataWithoutLogout(){
+  cleardataWithoutLogout() {
     localStorage.removeItem('userAccount');
     localStorage.removeItem('isAdmin');
     localStorage.removeItem('userData');
 
   }
 
-// deslogea y elimina todo
+  // desloguea y elimina todo
   clearDataOnLogOut() {
-    localStorage.removeItem('userAccount');
-    localStorage.removeItem('isAdmin');
-    localStorage.removeItem('token');
-    localStorage.removeItem('userData');
+    try {
+      localStorage.clear();
+    } catch (error) {
+      console.log('Error clear localStorage', error);
+    }
   }
 
 
-    addCartData(info: any) {
-      localStorage.setItem('infoUsuario', JSON.stringify(info));
-  
-      const obj = JSON.parse(localStorage.getItem('cartData'));
-  
-      // checkea si el item esta vacio
-      if (Object.keys(obj.response).length == 0) {
-        this.cleardataWithoutLogout();
-      }
-  
-      this.usuarioData.next(JSON.parse(this.getUserAccount()));
+  addCartData(info: any) {
+    localStorage.setItem('infoUsuario', JSON.stringify(info));
+
+    const obj = JSON.parse(localStorage.getItem('cartData'));
+
+    // checkea si el item esta vacio
+    if (Object.keys(obj.response).length == 0) {
+      this.cleardataWithoutLogout();
     }
+    this.usuarioData.next(JSON.parse(this.getUserAccount()));
+  }
 }
