@@ -78,33 +78,38 @@
                             <th scope="col" class="border-0 text-uppercase font-medium pl-4">id</th>
                             <th scope="col" class="border-0 text-uppercase font-medium pl-4">cuenta</th>
                             <th scope="col" class="border-0 text-uppercase font-medium">Monto</th>
+                            <th scope="col" class="border-0 text-uppercase font-medium">Intereses</th>
                             <th scope="col" class="border-0 text-uppercase font-medium">Constituido</th>
                             <th scope="col" class="border-0 text-uppercase font-medium">Finaliza</th>
                           </tr>
                         </thead>
-                        <tbody *ngFor="let item of plazosFijos">
+                        <tbody *ngFor="let item of intereses">
                             <tr>
                               <td class="pl-4">{{ item.id }}</td>
                               <td class="pl-4">{{ item.accountId }}</td>
 
                               <td>
-                                  <span class="text-muted">{{ item.amount }}</span><br>
+                                  <span class="text-muted">{{ item.amount | currency }}</span><br>
                               </td>
                               <td>
-                                  <span class="text-muted">{{ item.createdAt }}</span><br>
+                                <span class="text-muted">{{ item.interes | currency }}</span><br>
                               </td>
                               <td>
-                                  <span class="text-muted">{{ item.updatedAt }}</span><br>
+                                  <span class="text-muted">{{ item.createdAt | date }}</span><br>
                               </td>
                               <td>
-                                <button type="button" class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2"><i class="fa fa-edit"></i> </button>
+                                  <span class="text-muted">{{ item.closing_date | date }}</span><br>
+                              </td>
+                              <td>
                                 <button type="button" class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2" (click)="deleteFixedDeposit(item.id)"><i class="fa fa-trash"></i> </button>
                               </td>
                             </tr>
                             <td>
                             </td>
                           </tbody>
-                          <span class="text-muted">Total {{ total }}</span><br>
+                          <span class="text-muted">Total invertido {{ total | currency}}</span><br>
+                          <!-- <span class="text-muted">Intereses totales {{ interesesTotales | currency}}</span><br> -->
+                          <!-- <span class="text-muted">Intereses generados {{ intereses | currency }}</span><br> -->
                 </table>
             </div>
         </div>

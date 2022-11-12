@@ -4,6 +4,8 @@ import { HttpClient, HttpHeaders} from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { FixedDeposit, FixedDepositCreated, ResponseFixedDeposits } from 'src/app/core/interfaces/FixedDeposits';
 import { TokenService } from 'src/app/core/services/token.service';
+import { DatePipe } from '@angular/common';
+import { isNgTemplate } from '@angular/compiler';
 
 
 
@@ -67,14 +69,42 @@ export class PlazoFijoComponent implements OnInit {
   }
 
 
+  intereses: any[];
+  days: any;
+
   listFixedDeposits() {
     return this.http.get<ResponseFixedDeposits>(`${environment.API_URL}/fixeddeposits`)
     .subscribe((res) => {
 
     console.log(res.data)
     this.plazosFijos = [...res.data];
-    this.total = this.plazosFijos.reduce((counter, item) => Number(item.amount) + counter, 0)
-    console.log(this.total)
+    this.total = this.plazosFijos.reduce((counter, item) => Number(item.amount) + counter, 0);
+
+
+    this.days = this.plazosFijos.map(item =>
+      Math.round(
+      Math.ceil(
+        new Date(item.closing_date).getTime() -
+        new Date(item.createdAt).getTime()
+        ) / (1000 * 60 * 60 * 24))
+      );
+
+
+    this.intereses = this.plazosFijos.map(item => {
+      return {
+        ...item,
+        interes: item.amount * 0.01 * Math.round(
+          Math.ceil(
+            new Date(item.closing_date).getTime() -
+            new Date(item.createdAt).getTime()
+            ) / (1000 * 60 * 60 * 24))
+
+      }
+    })
+
+
+    console.log('days',this.days);
+
 
     })
 
