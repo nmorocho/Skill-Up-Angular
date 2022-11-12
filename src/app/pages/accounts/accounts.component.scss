@@ -1,4 +1,38 @@
-#container{
-  width: 100vw;
-  height: 100vh;
+
+.loader__container {
+  height         : 20px;
+  width          : 20px;
+  display        : flex;
+  justify-content: center;
+  align-items    : center;
+
+  .loader {
+    width              : 20px;
+    height             : 20px;
+    border-top-color   : grey;
+    border-top-style   : groove;
+    border-bottom-color: grey;
+    border-bottom-style: groove;
+    border-radius      : 100%;
+    margin             : auto;
+    animation          : girar 1.5s linear infinite;
+  }
+}
+
+.list-group-item {
+  cursor: pointer;
+}
+
+@keyframes girar {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.accordion-body {
+  min-height: 70px !important;
 }

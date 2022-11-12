@@ -9,7 +9,6 @@ import { PlazoFijoComponent } from './pages/inversiones/plazo-fijo/plazo-fijo.co
 import { MovimientoListComponent } from './pages/movimientos/movimiento-list/movimiento-list.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found/page-not-found.component';
 import { SendmoneyComponent } from './pages/sendmoney/sendmoney.component';
-import { TransactionListComponent } from './pages/transactions/transaction-list/transaction-list.component';
 import { UseraccountlistComponent } from './pages/useraccountlist/useraccountlist.component';
 import { UserDetailsComponent } from './pages/users/user-details/user-details.component';
 

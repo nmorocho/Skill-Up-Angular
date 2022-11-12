@@ -41,8 +41,7 @@ export class GetallaccountsService {
     return this.http.post(`${environment.API_URL}/accounts/`, idCuenta)
   }
   getRelatedAccount(): Observable<Account[]> {
-    return this.http.get<Account[]>(`${environment.API_URL}/accounts/me`, { headers: this.customHeaders })
-      .pipe(tap(data => { this.accountList = data }))
+    return this.http.get<Account[]>(`${environment.API_URL}/accounts/me`)
   }
 
 
