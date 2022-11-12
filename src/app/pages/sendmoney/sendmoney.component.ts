@@ -36,16 +36,11 @@ export class SendmoneyComponent implements OnInit {
     console.log('estoy en el compoenete de listas')
   }
  
-
   public showSpinner() {
     this.spin.callshow();
   }
-
-
-
   searchUser() {
-   
-   
+      
     this.userlistservice.getUserById(this.searchUsersForm.value.userId).subscribe({
       next: (dataUser) => {
         this.userList = [dataUser];
