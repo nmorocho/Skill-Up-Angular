@@ -7,53 +7,46 @@
     <div class="container card shadow d-flex justify-content-center imag">
       <!-- nav options -->
       <ul class="nav nav-pills mb-3 shadow-sm" id="pills-tab" role="tablist">
-
-
         <li class="nav-item sl m-4">
           <h2 class="nav-link ">Seleccionar cuenta</h2>
-
         </li>
-
-
       </ul>
-
       <!-- content -->
       <div class="tab-content" id="pills-tabContent p-3">
         <!-- 1st card -->
         <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-
-
           <div class="pass">
 
-         
-          <div class="scroll" *ngIf="!isLoading">
+            <div class="scroll" *ngIf="!isLoading">
 
-            <div  class="m-4" *ngFor="let account of userAccounts"
-              (click)="onSelect(account)">
-              <ul class="ccontent ">
-                <li>
-                  <div class="wrapp cuenta">
-                    <!--
-  (click)="getUser(user.id)"
- -->
-                    <div class="manito"> Número de cuenta: </div>
-                    <h4>{{account.id}}</h4>
-                    <a> dinero: $ {{account.money}}</a>
-                    <p> <strong> cuenta creada el: </strong> {{account.creationDate| date:'dd/MM/YYYY'}} </p>
-                    <div class="row m-4">
-                      <div class="col-md-12 m-3 ">
-                        <div class="card shadow pass-2 ">
+              <div class="m-4" *ngFor="let account of userAccounts" (click)="onSelect(account)">
+                <ul class="ccontent ">
 
-                          <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-outline-success m-2">Pago</button>
-                        </div>  
+                  <li>
+                    <div class="wrapp cuenta">
+                      <div class="manito"> Número de cuenta: </div>
+                      <h4>{{account.id}}</h4>
+                      <a> dinero: $ {{account.money}}</a>
+                      <p> <strong> cuenta creada el: </strong> {{account.creationDate| date:'dd/MM/YYYY'}} </p>
+                      <div class="row m-4">
+                        <div class="col-md-12 m-3 ">
+                          <div class="card shadow pass-2 ">
+                            <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                              class="btn btn-outline-success m-2">Transferir</button>
+                          </div>
+                          <div class="card shadow pass-2 ">
+                            <button type="button" data-bs-toggle="modal" (click)="getAcoun()"
+                              data-bs-target="#exampleModal-2" class="btn btn-outline-success m-2">Hacer un
+                              pago</button>
+                          </div>
+                        </div>
                       </div>
                     </div>
-                  </div>            
-                </li>
-              </ul>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
-        </div>
         </div>
       </div>
     </div>
@@ -70,22 +63,69 @@
       </div>
       <form [formGroup]="pago" action="">
 
-        <div  class="modal-body" *ngIf="selectedaccount">
+        <div class="modal-body" *ngIf="selectedaccount">
+          Cuenta a la que se hará la transferencia
           <h5> N° de cuenta:{{selectedaccount.id}} </h5>
-          <input class="form-control form-control-sm m-2" formControlName="amount" type="text" numbers placeholder="ingresar importe"
-            aria-label=".form-control-sm example">
-            <input class="form-control form-control-sm m-2" formControlName="concept"  type="text" placeholder="concepto de pago"
-            aria-label=".form-control-sm example">
-            <input class="form-control form-control-sm m-2" formControlName="type"  type="text" placeholder="tipo de pago"
-            aria-label=".form-control-sm example">
-        </div>
-     
-     
+        
+          <input class="form-control form-control-sm m-2" formControlName="amount" type="text" numbers
+            placeholder="ingresar importe" aria-label=".form-control-sm example">
+          <input class="form-control form-control-sm m-2" formControlName="concept" type="text"
+            placeholder="concepto de pago" aria-label=".form-control-sm example">
 
+          <input class="form-control form-control-sm m-2" readonly formControlName="type" type="text"
+            placeholder="transferencia" aria-label=".form-control-sm example">
+        </div>
       </form>
 
       <div class="modal-footer">
         <button (click)="onSend(selectedaccount)" class="btn btn-primary">Realizar pago</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal 2 -->
+<div class="modal fade" id="exampleModal-2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Enviar transacción a la cuenta </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form [formGroup]="transaction" action="">
+
+        <div class="modal-body" *ngIf="selectedaccount">
+          <h5> cuenta destino : N° {{selectedaccount.id}} || {{date| date:'dd/MM/yyyy'}}</h5>
+
+          <h6 class="m-4" style="color: rgb(26, 109, 26) ;">
+         Selecciona una de tus cuentas con la que harás la transacción   
+          </h6>
+         
+
+          monto total del depósito
+          <input class="form-control form-control-sm m-2" formControlName="amount" type="text" 
+            placeholder="ingresar importe" aria-label=".form-control-sm example">
+
+            motivo del depósito
+          <input class="form-control form-control-sm m-2" formControlName="concept" type="text"
+            placeholder="concepto de pago" aria-label=".form-control-sm example">
+           
+          
+            tipo de transacción
+            <input class="form-control form-control-sm m-2" readonly type="text" placeholder="pago"
+            aria-label=".form-control-sm example">
+
+             tu numero de cliente
+            <input class="form-control form-control-sm m-2" readonly formControlName="userId" type="text" placeholder="n cuenta"
+              aria-label=".form-control-sm example">
+
+             tu númerro de cuenta seleccionada para hacer esta transaccón
+            <input class="form-control form-control-sm m-2" readonly type="text" formControlName="accountId" placeholder="cuenta titular"
+              aria-label=".form-control-sm example">        
+          </div>
+      </form>
+      <div class="modal-footer"> 
+        <button (click)="onSendTransaction(selectedaccount)" class="btn btn-primary">Realizar pago</button>
       </div>
     </div>
   </div>
