@@ -2,7 +2,9 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, tap } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { Account } from '../interfaces/Account.interface';
 import { Transaction, Transactions } from '../interfaces/Transaction.interface';
+import { GetallaccountsService } from './getallaccounts.service';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +12,7 @@ import { Transaction, Transactions } from '../interfaces/Transaction.interface';
 export class OperationsService {
 
   public infoTransactions: Transactions
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private getAllAccountService: GetallaccountsService) {
     this.viewProfileTransaction().subscribe(data => {
       console.log(data);
     })
@@ -43,4 +45,25 @@ export class OperationsService {
         }
       }))
   }
+
+  withdraw(accountId: number, ammount: number, all: boolean = false): Observable<Account> {
+    if(all){
+      return this.http.put<Account>(`${environment.API_URL}/accounts/${accountId}`, { money: 0 })
+      .pipe(
+        tap(data => {
+          if (data.id) { this.getAllAccountService.ChangeMoneyByAccountId(accountId, JSON.stringify(0)) }
+        })
+      )
+    }
+    const currentMoney = this.getAllAccountService.accountList.find(account => account.id === accountId).money
+    const newMoney = Number(currentMoney) - ammount
+    return this.http.put<Account>(`${environment.API_URL}/accounts/${accountId}`, { money: newMoney })
+      .pipe(
+        tap(data => {
+          if (data.id) { this.getAllAccountService.ChangeMoneyByAccountId(accountId, JSON.stringify(newMoney)) }
+        })
+      )
+  }
+
+
 }

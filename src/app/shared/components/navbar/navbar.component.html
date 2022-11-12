@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg bg-light">
+<nav class="navbar navbar-expand-lg bg-light sticky-lg-top">
   <div class="container-fluid">
     <a class="navbar-brand">Alkemy Wallet</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
@@ -11,21 +11,7 @@
           <a class="nav-link d-flex gap-1" aria-current="page" routerLink="/home" role="button"><img
               src="../../../../assets/icons/House.svg" alt="" />Inicio</a>
         </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <img src="../../../../assets/icons/profile.svg" alt="" />
-            Perfil
-          </a>
-          <ul class="dropdown-menu">
-            <li>
-              <a class="dropdown-item manito" [routerLink]="['/my-profile']" routerLinkActive="router-link-active"
-                role="button">Ver perfil</a>
-            </li>
-            <li>
-              <a class="dropdown-item manito manito" (click)="logout()" role="button">Cerrar sesión</a>
-            </li>
-          </ul>
-        </li>
+ 
         <li class="nav-item dropdown">
           <a routerLink="/actividad" class="nav-link dropdown-toggle"  role="button" data-bs-toggle="dropdown" aria-expanded="false">
             <img src="../../../../assets/icons/bar graph.svg" alt="" style="height: 20px" />
@@ -52,6 +38,26 @@
           <a routerLink="/cuentas" class="nav-link d-flex gap-1 manito"><img src="../../../../assets/icons/cash.svg" alt="" />Billeteras</a>
         </li>
       </ul>
+      
     </div>
+   
   </div>
+  <div class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+      <img src="../../../../assets/icons/profile.svg" alt="" />
+      Perfil
+    </a>
+    <ul class="dropdown-menu">
+      <li>
+        <a class="dropdown-item manito" [routerLink]="['/my-profile']" routerLinkActive="router-link-active"
+          role="button">Ver perfil</a>
+      </li>
+      <li>
+        <a class="dropdown-item manito manito" (click)="logout()" role="button">Cerrar sesión</a>
+      </li>
+    </ul>
+  </div>
+  <a class="navbar-brand"></a>
+  <a class="navbar-brand"><app-myaccountslist ></app-myaccountslist></a>
+  
 </nav>
