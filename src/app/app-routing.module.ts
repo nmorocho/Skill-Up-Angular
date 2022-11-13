@@ -4,6 +4,7 @@ import { AuthGuard } from './guards/auth.guard';
 import { AccountsComponent } from './pages/accounts/accounts.component';
 import { LoginComponent } from './pages/auth-login/login/login.component';
 import { RegistroComponent } from './pages/auth-registro/registro/registro.component';
+import { GastoFromRetirarComponent } from './pages/gastos/gasto-from-retirar/gasto-from-retirar.component';
 import { HomeComponent } from './pages/home/home.component';
 import { PlazoFijoComponent } from './pages/inversiones/plazo-fijo/plazo-fijo.component';
 import { MovimientoListComponent } from './pages/movimientos/movimiento-list/movimiento-list.component';
@@ -60,6 +61,10 @@ const routes: Routes = [
   {
     path: 'cuentas',
     component: AccountsComponent
+  },
+  {
+    path: 'gastos/extracciones',
+    component: GastoFromRetirarComponent
   },
   {
     path: '**',

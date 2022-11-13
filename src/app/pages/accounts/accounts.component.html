@@ -1,7 +1,10 @@
-<app-navbar></app-navbar>
-<div class="container mt-5">
-    selectedAccount
 
+<div id="fondo">
+
+
+<app-navbar></app-navbar>
+
+<div  class="container mt-5 ancho ">
     <div class="accordion mb-5" id="accordionPanelsStayOpenExample">
         <div class="accordion-item">
             <h2 class="accordion-header" id="panelsStayOpen-headingOne">
@@ -21,16 +24,25 @@
                     <ul class="list-group" *ngIf="accountListLoad">
                         <li class="list-group-item" *ngFor="let account of accountList" (click)="setAccount(account)"
                             [ngStyle]="{background:account.isSelected?'salmon':'inherit'}">Nº: {{account.id}} | Monto:
-                            {{account.money}} <button class="btn btn-outline-primary m-2" (click)="sendMoney()">Enviar
-                                dinero</button> <button class="btn btn-outline-primary m-2" type="button"
-                                data-bs-toggle="modal" data-bs-target="#chargemoney">Ingresar dinero</button></li>
+                            {{account.money}} 
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <button class="btn btn-outline-primary m-2" (click)="sendMoney()">Enviar
+                                        dinero
+                                    </button> <button class="btn btn-outline-primary m-2" type="button"
+                                        data-bs-toggle="modal" data-bs-target="#chargemoney">Ingresar dinero</button>
+                                </div>
+                            </div>
+                           
+                            
+                            </li>
                     </ul>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<!-- Modal -->
 <div class="modal fade" id="chargemoney" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
     aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -53,4 +65,6 @@
             </div>
         </div>
     </div>
+</div>
+
 </div>

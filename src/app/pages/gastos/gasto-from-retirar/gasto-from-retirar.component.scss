@@ -1,0 +1,26 @@
+html,
+body {
+  height: 100%;
+}
+
+.color-change-2x {
+	-webkit-animation: color-change-2x 3s linear infinite alternate both;
+	        animation: color-change-2x 3s linear infinite alternate both;
+}
+ 
+ @-webkit-keyframes color-change-2x {
+	0% {
+	  background: #a1a3a3;
+	}
+	100% {
+	  background: #d8e1ea;
+	}
+  }
+  @keyframes color-change-2x {
+	0% {
+	  background: #d8e1ea;
+	}
+	100% {
+	  background: #9db0c0;
+	}
+  }
