@@ -41,10 +41,13 @@ export class GetallaccountsService {
     return this.http.post(`${environment.API_URL}/accounts/`, idCuenta)
   }
   getRelatedAccount(): Observable<Account[]> {
-    return this.http.get<Account[]>(`${environment.API_URL}/accounts/me`, { headers: this.customHeaders })
-      .pipe(tap(data => { this.accountList = data }))
+    return this.http.get<Account[]>(`${environment.API_URL}/accounts/me`)
   }
 
+  // por adaptar
+  transaction(deposit: any): Observable<any> {
+    return this.http.post(`${environment.API_URL}/transactions`, { headers: this.customHeaders })
+  }
 
   ChangeMoneyByAccountId(id: number, newBalance:string) {
     this.accountList = this.accountList.map(account => account.id === id ? {...account,money:newBalance} : account)

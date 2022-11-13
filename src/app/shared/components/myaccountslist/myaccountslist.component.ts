@@ -31,7 +31,7 @@ export class MyaccountslistComponent implements OnInit {
         this.accountList = data;
         this.accountListLoad = true;
         this.isLoading= false;
-       console.log('>>>>>>',this.accountList,'<<<<<<<')
+      // console.log('>>>>>>',this.accountList,'<<<<<<<')
       }
     })
   }

@@ -4,7 +4,6 @@ import { CommonModule } from '@angular/common';
 import { AuthLoginRoutingModule } from './auth-login-routing.module';
 import { LoginComponent } from './login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { SharedModule } from 'src/app/shared/shared.module';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoaderComponent } from '../loader/loader.component';
@@ -16,7 +15,6 @@ import { LoaderComponent } from '../loader/loader.component';
     AuthLoginRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    SharedModule,
     NgxSpinnerModule,
     BrowserAnimationsModule
   ],
