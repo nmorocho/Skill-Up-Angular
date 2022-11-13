@@ -34,8 +34,12 @@
           <a routerLink="/contactos" class="nav-link d-flex gap-1 manito"><img src="../../../../assets/icons/chat.svg" alt="" />Contactos</a>
         </li>
 
-        <li class="nav-item">
-          <a routerLink="/cuentas" class="nav-link d-flex gap-1 manito"><img src="../../../../assets/icons/cash.svg" alt="" />Billeteras</a>
+        <li class="nav-item dropdown">
+          <a routerLink="/cuentas" class="nav-link dropdown-toggle"  role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="../../../../assets/icons/cash.svg" alt="" />Billeteras</a>
+          <ul class="dropdown-menu ">
+            <li><a class="dropdown-item" routerLink="/gastos/extracciones" >Extracciones</a></li>
+          </ul>
         </li>
       </ul>
       

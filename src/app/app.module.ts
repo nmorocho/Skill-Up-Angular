@@ -27,6 +27,7 @@ import { UseraccountlistComponent } from './pages/useraccountlist/useraccountlis
 import { BalanceInfoComponent } from './pages/balances/balance-info/balance-info.component';
 import { MovimientoListComponent } from './pages/movimientos/movimiento-list/movimiento-list.component';
 import { AccountsComponent } from './pages/accounts/accounts.component';
+import { GastoFromRetirarComponent } from './pages/gastos/gasto-from-retirar/gasto-from-retirar.component';
 
 
 
@@ -47,7 +48,8 @@ import { AccountsComponent } from './pages/accounts/accounts.component';
     UseraccountlistComponent,
     BalanceInfoComponent,
     MovimientoListComponent,
-    AccountsComponent],
+    AccountsComponent,
+    GastoFromRetirarComponent],
   imports: [
     NgxSpinnerModule,
     BrowserModule,
