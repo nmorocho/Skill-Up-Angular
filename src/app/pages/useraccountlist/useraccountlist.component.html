@@ -89,7 +89,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Enviar transacción a la cuenta </h5>
+        <h5 class="modal-title" id="exampleModalLabel">Enviar transacción </h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <form [formGroup]="transaction" action="">
@@ -102,25 +102,24 @@
           </h6>
          
 
-          monto total del depósito
+         
           <input class="form-control form-control-sm m-2" formControlName="amount" type="text" 
             placeholder="ingresar importe" aria-label=".form-control-sm example">
 
-            motivo del depósito
+            
           <input class="form-control form-control-sm m-2" formControlName="concept" type="text"
             placeholder="concepto de pago" aria-label=".form-control-sm example">
-           
-          
-            tipo de transacción
-            <input class="form-control form-control-sm m-2" readonly type="text" placeholder="pago"
+                     
+            Tipo de transacción:
+            <input class="form-control form-control-sm m-2 color" readonly type="text" placeholder="pago"
             aria-label=".form-control-sm example">
 
-             tu numero de cliente
-            <input class="form-control form-control-sm m-2" readonly formControlName="userId" type="text" placeholder="n cuenta"
+             Tu número de cliente:
+            <input class="form-control form-control-sm m-2 color" readonly formControlName="userId" type="number" placeholder="n cuenta"
               aria-label=".form-control-sm example">
 
-             tu númerro de cuenta seleccionada para hacer esta transaccón
-            <input class="form-control form-control-sm m-2" readonly type="text" formControlName="accountId" placeholder="cuenta titular"
+             Tu número de cuenta seleccionada para hacer esta transaccón:
+            <input class="form-control form-control-sm m-2 color" readonly type="number" formControlName="accountId" placeholder="cuenta titular"
               aria-label=".form-control-sm example">        
           </div>
       </form>
