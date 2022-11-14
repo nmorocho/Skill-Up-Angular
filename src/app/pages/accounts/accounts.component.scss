@@ -1,4 +1,7 @@
-
+.scroll {
+  max-height: 70vh;
+  overflow-y: auto;
+}
 
 #fondo {
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://fondosmil.com/fondo/31314.jpg');
